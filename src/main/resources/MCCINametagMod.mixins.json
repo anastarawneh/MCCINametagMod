@@ -1,0 +1,18 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "me.anastarawneh.mccinametagmod.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+  ],
+  "client": [
+    "ClientPlayNetworkHandlerMixin",
+    "EntityRendererMixin",
+    "IngameHudAccessor",
+    "LivingEntityRendererMixin",
+    "PlayerListHudAccessor"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

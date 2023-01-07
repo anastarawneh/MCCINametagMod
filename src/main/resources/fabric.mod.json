@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "mccinametagmod",
+  "version": "${version}",
+  "name": "MCCI Nametag Mod",
+  "description": "A mod that displays your own name tag on MCC Island in the exact way the server does it.",
+  "authors": [
+    "anastarawneh"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/mccinametagmod/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "main": [
+      "me.anastarawneh.mccinametagmod.MCCINametagMod"
+    ],
+    "modmenu": [
+      "me.anastarawneh.mccinametagmod.config.ModMenuScreen"
+    ]
+  },
+  "mixins": [
+    "MCCINametagMod.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.11",
+    "fabric": "*",
+    "minecraft": "1.19.2",
+    "cloth-config": "*"
+  }
+}
