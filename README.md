@@ -11,3 +11,5 @@ This is a mod that displays your own nametag on MCC Island, exactly the way the 
 - If you change your faction, the mod doesn't recognize your new faction until the next time you load Minecraft.
 
 Please report any bugs or issues to the [GitHub repository issue tracker](https://github.com/anastarawneh/MCCINametagMod/issues).
+
+This mod is not affiliated with MCC Island or Noxcrew.
