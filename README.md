@@ -5,11 +5,10 @@ This is a mod that displays your own nametag on MCC Island, exactly the way the 
 ### To-Do:
 - Display the actual rank in lobbies, currently only the name is colored.
 - Support for other 1.19.x versions.
-- Clean up my Discord to use for support.
 
 ### Known Issues:
 - If you change your faction, the mod doesn't recognize your new faction until the next time you load Minecraft.
 
-Please report any bugs or issues to the [GitHub repository issue tracker](https://github.com/anastarawneh/MCCINametagMod/issues).
+Please report any bugs or issues to [my Discord server](https://discord.gg/4XyWdWzRrU), or the [GitHub repository issue tracker](https://github.com/anastarawneh/MCCINametagMod/issues).
 
 This mod is not affiliated with MCC Island or Noxcrew.
