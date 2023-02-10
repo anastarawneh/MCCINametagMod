@@ -67,7 +67,7 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
 
                 if (MCCINametagMod.GAME_STAGE == 0) {
                     topLabel = Text.literal("");
-                    bottomLabel = Text.literal("\uE0F1").setStyle(Style.EMPTY.withColor(style.getColor()).withFont(new Identifier("mcc:icon"))).append(Text.literal(" " + playerName).setStyle(Style.EMPTY.withFont(new Identifier("minecraft:default"))));
+                    bottomLabel = Text.literal(playerName).setStyle(Style.EMPTY.withColor(style.getColor()));
                     MCCINametagMod.TEAM_COLOR = style.getColor();
                 }
                 else if (MCCINametagMod.GAME_STAGE == 1) {
@@ -76,67 +76,67 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
 
                     float health = player.getHealth();
 
-                    if (health >= 4) topLabel = topLabel.append(Text.literal("\uE086").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 3) topLabel = topLabel.append(Text.literal("\uE085").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 2) topLabel = topLabel.append(Text.literal("\uE084").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else topLabel = topLabel.append(Text.literal("\uE083").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    if (health >= 4) topLabel = topLabel.append(Text.literal("\uE087").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 3) topLabel = topLabel.append(Text.literal("\uE086").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 2) topLabel = topLabel.append(Text.literal("\uE085").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else topLabel = topLabel.append(Text.literal("\uE084").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
 
                     // I think on the server these paddings are positive but this looks better
                     topLabel = topLabel.append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
 
-                    if (health >= 8) topLabel = topLabel.append(Text.literal("\uE086").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 7) topLabel = topLabel.append(Text.literal("\uE085").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 6) topLabel = topLabel.append(Text.literal("\uE084").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 5) topLabel = topLabel.append(Text.literal("\uE083").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else topLabel = topLabel.append(Text.literal("\uE082").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    if (health >= 8) topLabel = topLabel.append(Text.literal("\uE087").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 7) topLabel = topLabel.append(Text.literal("\uE086").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 6) topLabel = topLabel.append(Text.literal("\uE085").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 5) topLabel = topLabel.append(Text.literal("\uE084").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else topLabel = topLabel.append(Text.literal("\uE083").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
 
                     topLabel = topLabel.append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
 
-                    if (health >= 12) topLabel = topLabel.append(Text.literal("\uE086").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 11) topLabel = topLabel.append(Text.literal("\uE085").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 10) topLabel = topLabel.append(Text.literal("\uE084").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 9) topLabel = topLabel.append(Text.literal("\uE083").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else topLabel = topLabel.append(Text.literal("\uE082").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    if (health >= 12) topLabel = topLabel.append(Text.literal("\uE087").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 11) topLabel = topLabel.append(Text.literal("\uE086").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 10) topLabel = topLabel.append(Text.literal("\uE085").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 9) topLabel = topLabel.append(Text.literal("\uE084").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else topLabel = topLabel.append(Text.literal("\uE083").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
 
                     topLabel = topLabel.append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
 
-                    if (health >= 16) topLabel = topLabel.append(Text.literal("\uE086").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 15) topLabel = topLabel.append(Text.literal("\uE085").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 14) topLabel = topLabel.append(Text.literal("\uE084").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 13) topLabel = topLabel.append(Text.literal("\uE083").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else topLabel = topLabel.append(Text.literal("\uE082").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    if (health >= 16) topLabel = topLabel.append(Text.literal("\uE087").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 15) topLabel = topLabel.append(Text.literal("\uE086").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 14) topLabel = topLabel.append(Text.literal("\uE085").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 13) topLabel = topLabel.append(Text.literal("\uE084").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else topLabel = topLabel.append(Text.literal("\uE083").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
 
                     topLabel = topLabel.append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
 
-                    if (health >= 20) topLabel = topLabel.append(Text.literal("\uE086").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 19) topLabel = topLabel.append(Text.literal("\uE085").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 18) topLabel = topLabel.append(Text.literal("\uE084").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 17) topLabel = topLabel.append(Text.literal("\uE083").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    if (health >= 20) topLabel = topLabel.append(Text.literal("\uE087").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 19) topLabel = topLabel.append(Text.literal("\uE086").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 18) topLabel = topLabel.append(Text.literal("\uE085").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 17) topLabel = topLabel.append(Text.literal("\uE084").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
                     else topLabel = topLabel.append(Text.literal(switch ((int) health) {
-                            case 16 -> "\uE096";
-                            case 15 -> "\uE095";
-                            case 14 -> "\uE094";
-                            case 13 -> "\uE093";
-                            case 12 -> "\uE092";
-                            case 11 -> "\uE091";
-                            case 10 -> "\uE090";
-                            case  9 -> "\uE08F";
-                            case  8 -> "\uE08E";
-                            case  7 -> "\uE08D";
-                            case  6 -> "\uE08C";
-                            case  5 -> "\uE08B";
-                            case  4 -> "\uE08A";
-                            case  3 -> "\uE089";
-                            case  2 -> "\uE088";
-                            case  1 -> "\uE087";
-                            default -> "\uE082";
+                            case 16 -> "\uE097";
+                            case 15 -> "\uE096";
+                            case 14 -> "\uE095";
+                            case 13 -> "\uE094";
+                            case 12 -> "\uE093";
+                            case 11 -> "\uE092";
+                            case 10 -> "\uE091";
+                            case  9 -> "\uE090";
+                            case  8 -> "\uE08F";
+                            case  7 -> "\uE08E";
+                            case  6 -> "\uE08D";
+                            case  5 -> "\uE08C";
+                            case  4 -> "\uE08B";
+                            case  3 -> "\uE08A";
+                            case  2 -> "\uE089";
+                            case  1 -> "\uE088";
+                            default -> "\uE083";
                         }).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
 
                     bottomLabel = Text.literal(playerName).setStyle(Style.EMPTY.withColor(style.getColor()).withFont(new Identifier("minecraft:default")));
                 }
                 else {
                     topLabel = Text.literal("");
-                    bottomLabel = Text.literal(playerName).setStyle(Style.EMPTY.withColor(MCCINametagMod.TEAM_COLOR));
+                    bottomLabel = Text.literal(MCCINametagMod.RANK + MCCINametagMod.TEAM + " ").setStyle(Style.EMPTY.withColor(MCCINametagMod.COLOR).withFont(new Identifier("mcc:icon"))).append(Text.literal(playerName).setStyle(Style.EMPTY.withFont(new Identifier("minecraft:default"))));
                 }
             }
             else if (header.contains("SKY BATTLE")) {
@@ -145,7 +145,7 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
 
                 if (MCCINametagMod.GAME_STAGE == 0) {
                     topLabel = Text.literal("");
-                    bottomLabel = Text.literal("\uE0F1").setStyle(Style.EMPTY.withColor(style.getColor()).withFont(new Identifier("mcc:icon"))).append(Text.literal(" " + playerName).setStyle(Style.EMPTY.withFont(new Identifier("minecraft:default"))));
+                    bottomLabel = Text.literal(playerName).setStyle(Style.EMPTY.withColor(style.getColor()));
                     MCCINametagMod.TEAM_COLOR = style.getColor();
                 }
                 else if (MCCINametagMod.GAME_STAGE == 1) {
@@ -154,67 +154,67 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
 
                     float health = player.getHealth();
 
-                    if (health >= 4) topLabel = topLabel.append(Text.literal("\uE086").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 3) topLabel = topLabel.append(Text.literal("\uE085").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 2) topLabel = topLabel.append(Text.literal("\uE084").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else topLabel = topLabel.append(Text.literal("\uE083").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    if (health >= 4) topLabel = topLabel.append(Text.literal("\uE087").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 3) topLabel = topLabel.append(Text.literal("\uE086").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 2) topLabel = topLabel.append(Text.literal("\uE085").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else topLabel = topLabel.append(Text.literal("\uE084").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
 
                     // I think on the server these paddings are positive but this looks better
                     topLabel = topLabel.append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
 
-                    if (health >= 8) topLabel = topLabel.append(Text.literal("\uE086").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 7) topLabel = topLabel.append(Text.literal("\uE085").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 6) topLabel = topLabel.append(Text.literal("\uE084").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 5) topLabel = topLabel.append(Text.literal("\uE083").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else topLabel = topLabel.append(Text.literal("\uE082").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    if (health >= 8) topLabel = topLabel.append(Text.literal("\uE087").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 7) topLabel = topLabel.append(Text.literal("\uE086").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 6) topLabel = topLabel.append(Text.literal("\uE085").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 5) topLabel = topLabel.append(Text.literal("\uE084").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else topLabel = topLabel.append(Text.literal("\uE083").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
 
                     topLabel = topLabel.append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
 
-                    if (health >= 12) topLabel = topLabel.append(Text.literal("\uE086").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 11) topLabel = topLabel.append(Text.literal("\uE085").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 10) topLabel = topLabel.append(Text.literal("\uE084").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 9) topLabel = topLabel.append(Text.literal("\uE083").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else topLabel = topLabel.append(Text.literal("\uE082").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    if (health >= 12) topLabel = topLabel.append(Text.literal("\uE087").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 11) topLabel = topLabel.append(Text.literal("\uE086").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 10) topLabel = topLabel.append(Text.literal("\uE085").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 9) topLabel = topLabel.append(Text.literal("\uE084").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else topLabel = topLabel.append(Text.literal("\uE083").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
 
                     topLabel = topLabel.append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
 
-                    if (health >= 16) topLabel = topLabel.append(Text.literal("\uE086").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 15) topLabel = topLabel.append(Text.literal("\uE085").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 14) topLabel = topLabel.append(Text.literal("\uE084").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 13) topLabel = topLabel.append(Text.literal("\uE083").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else topLabel = topLabel.append(Text.literal("\uE082").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    if (health >= 16) topLabel = topLabel.append(Text.literal("\uE087").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 15) topLabel = topLabel.append(Text.literal("\uE086").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 14) topLabel = topLabel.append(Text.literal("\uE085").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 13) topLabel = topLabel.append(Text.literal("\uE084").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else topLabel = topLabel.append(Text.literal("\uE083").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
 
                     topLabel = topLabel.append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
 
-                    if (health >= 20) topLabel = topLabel.append(Text.literal("\uE086").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 19) topLabel = topLabel.append(Text.literal("\uE085").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 18) topLabel = topLabel.append(Text.literal("\uE084").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 17) topLabel = topLabel.append(Text.literal("\uE083").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    if (health >= 20) topLabel = topLabel.append(Text.literal("\uE087").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 19) topLabel = topLabel.append(Text.literal("\uE086").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 18) topLabel = topLabel.append(Text.literal("\uE085").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 17) topLabel = topLabel.append(Text.literal("\uE084").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
                     else topLabel = topLabel.append(Text.literal(switch ((int) health) {
-                            case 16 -> "\uE096";
-                            case 15 -> "\uE095";
-                            case 14 -> "\uE094";
-                            case 13 -> "\uE093";
-                            case 12 -> "\uE092";
-                            case 11 -> "\uE091";
-                            case 10 -> "\uE090";
-                            case  9 -> "\uE08F";
-                            case  8 -> "\uE08E";
-                            case  7 -> "\uE08D";
-                            case  6 -> "\uE08C";
-                            case  5 -> "\uE08B";
-                            case  4 -> "\uE08A";
-                            case  3 -> "\uE089";
-                            case  2 -> "\uE088";
-                            case  1 -> "\uE087";
-                            default -> "\uE082";
+                            case 16 -> "\uE097";
+                            case 15 -> "\uE096";
+                            case 14 -> "\uE095";
+                            case 13 -> "\uE094";
+                            case 12 -> "\uE093";
+                            case 11 -> "\uE092";
+                            case 10 -> "\uE091";
+                            case  9 -> "\uE090";
+                            case  8 -> "\uE08F";
+                            case  7 -> "\uE08E";
+                            case  6 -> "\uE08D";
+                            case  5 -> "\uE08C";
+                            case  4 -> "\uE08B";
+                            case  3 -> "\uE08A";
+                            case  2 -> "\uE089";
+                            case  1 -> "\uE088";
+                            default -> "\uE083";
                         }).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
 
                     bottomLabel = Text.literal(playerName).setStyle(Style.EMPTY.withColor(style.getColor()).withFont(new Identifier("minecraft:default")));
                 }
                 else {
                     topLabel = Text.literal("");
-                    bottomLabel = Text.literal(playerName).setStyle(Style.EMPTY.withColor(MCCINametagMod.TEAM_COLOR));
+                    bottomLabel = Text.literal(MCCINametagMod.RANK + MCCINametagMod.TEAM + " ").setStyle(Style.EMPTY.withColor(MCCINametagMod.COLOR).withFont(new Identifier("mcc:icon"))).append(Text.literal(playerName).setStyle(Style.EMPTY.withFont(new Identifier("minecraft:default"))));
                 }
             }
             else {
@@ -224,7 +224,7 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
                 int achievementpoints = Integer.parseInt(actionBar.getSiblings().get(5).getSiblings().get(1).getSiblings().get(1).getSiblings().get(1).getString());
                 bottomLabel = Text.literal(MCCINametagMod.TEAM).setStyle(Style.EMPTY.withFont(new Identifier("mcc:icon")))
                         .append(Text.literal(factionLevel + " ").setStyle(Style.EMPTY.withFont(new Identifier("minecraft:default"))))
-                        .append(Text.literal("\uE00A").setStyle(Style.EMPTY.withFont(new Identifier("mcc:icon"))))
+                        .append(Text.literal("\uE00B").setStyle(Style.EMPTY.withFont(new Identifier("mcc:icon"))))
                         .append(Text.literal(String.valueOf(achievementpoints)).setStyle(Style.EMPTY.withColor(Formatting.YELLOW).withFont(new Identifier("minecraft:default"))));
             }
         } catch (Exception ex) {

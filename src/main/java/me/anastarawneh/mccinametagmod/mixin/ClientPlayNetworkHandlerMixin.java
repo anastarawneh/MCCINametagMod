@@ -35,16 +35,16 @@ public abstract class ClientPlayNetworkHandlerMixin {
 
     @Inject(method = "onGameMessage(Lnet/minecraft/network/packet/s2c/play/GameMessageS2CPacket;)V", at = @At("TAIL"))
     public void onGameMessage(GameMessageS2CPacket packet, CallbackInfo ci) {
-        if (packet.content().getString().contains("[\uE06E] Battle Box")||
-                packet.content().getString().contains("[\uE075] Sky Battle")) {
+        if (packet.content().getString().contains("[\uE06F] Battle Box")||
+                packet.content().getString().contains("[\uE076] Sky Battle")) {
             MCCINametagMod.GAME_STAGE = 0;
         }
-        if (packet.content().getString().contains("[\uE0B4] You have chosen the") ||
-                packet.content().getString().contains("[\uE075] Game started!")) {
+        if (packet.content().getString().contains("[\uE0B6] You have chosen the") ||
+                packet.content().getString().contains("[\uE076] Game started!")) {
             MCCINametagMod.GAME_STAGE = 1;
         }
-        if (packet.content().getString().contains("(\uE021) You receive: Battle Box Tokens") ||
-                packet.content().getString().contains("[\uE075] Game Over!")) {
+        if (packet.content().getString().contains("(\uE022) You receive: Battle Box Tokens") ||
+                packet.content().getString().contains("[\uE076] Game Over!")) {
             MCCINametagMod.GAME_STAGE = 2;
         }
     }
