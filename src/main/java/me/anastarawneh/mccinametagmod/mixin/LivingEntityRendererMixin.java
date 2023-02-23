@@ -71,7 +71,7 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
                     MCCINametagMod.TEAM_COLOR = style.getColor();
                 }
                 else if (MCCINametagMod.GAME_STAGE == 1) {
-                    topLabel = Text.literal("\uE0F2").setStyle(Style.EMPTY.withColor(style.getColor()).withFont(new Identifier("mcc:icon")))
+                    topLabel = Text.literal("\uE0F7").setStyle(Style.EMPTY.withColor(style.getColor()).withFont(new Identifier("mcc:icon")))
                             .append(Text.literal(" ").setStyle(Style.EMPTY.withColor(Formatting.WHITE)));
 
                     float health = player.getHealth();
@@ -149,7 +149,7 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
                     MCCINametagMod.TEAM_COLOR = style.getColor();
                 }
                 else if (MCCINametagMod.GAME_STAGE == 1) {
-                    topLabel = Text.literal("\uE0F2").setStyle(Style.EMPTY.withColor(style.getColor()).withFont(new Identifier("mcc:icon")))
+                    topLabel = Text.literal("\uE0F7").setStyle(Style.EMPTY.withColor(style.getColor()).withFont(new Identifier("mcc:icon")))
                             .append(Text.literal(" ").setStyle(Style.EMPTY.withColor(Formatting.WHITE)));
 
                     float health = player.getHealth();
