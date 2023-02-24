@@ -4,7 +4,6 @@ This is a mod that displays your own nametag on MCC Island, exactly the way the 
 
 ### To-Do:
 - Display the actual rank in lobbies, currently only the name is colored.
-- Support for other 1.19.x versions.
 
 ### Known Issues:
 - If you change your faction, the mod doesn't recognize your new faction until the next time you load Minecraft.
