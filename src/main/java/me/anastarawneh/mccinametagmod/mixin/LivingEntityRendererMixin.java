@@ -246,9 +246,9 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
             int j = (int)(g * 255.0F) << 24;
             TextRenderer textRenderer = this.getTextRenderer();
             float h = (float)(-textRenderer.getWidth(bottomLabel) / 2);
-            textRenderer.draw(bottomLabel, h, (float)i, 553648127, false, matrix4f, vertexConsumers, bl, j, light);
+            textRenderer.draw(bottomLabel, h, (float)i, 553648127, false, matrix4f, vertexConsumers, bl ? TextRenderer.TextLayerType.SEE_THROUGH : TextRenderer.TextLayerType.NORMAL, j, light);
             if (bl) {
-                textRenderer.draw(bottomLabel, h, (float)i, -1, false, matrix4f, vertexConsumers, false, 0, light);
+                textRenderer.draw(bottomLabel, h, (float)i, -1, false, matrix4f, vertexConsumers, TextRenderer.TextLayerType.NORMAL, 0, light);
             }
 
             matrices.pop();
@@ -262,9 +262,9 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
                 matrices.scale(-0.025F, -0.025F, 0.025F);
                 matrix4f = matrices.peek().getPositionMatrix();
                 h = (float)(-textRenderer.getWidth(topLabel) / 2);
-                textRenderer.draw(topLabel, h, (float) i, 553648127, false, matrix4f, vertexConsumers, bl, j, light);
+                textRenderer.draw(topLabel, h, (float) i, 553648127, false, matrix4f, vertexConsumers, bl ? TextRenderer.TextLayerType.SEE_THROUGH : TextRenderer.TextLayerType.NORMAL, j, light);
                 if (bl) {
-                    textRenderer.draw(topLabel, h, (float) i, -1, false, matrix4f, vertexConsumers, false, 0, light);
+                    textRenderer.draw(topLabel, h, (float) i, -1, false, matrix4f, vertexConsumers, TextRenderer.TextLayerType.NORMAL, 0, light);
                 }
 
                 matrices.pop();
