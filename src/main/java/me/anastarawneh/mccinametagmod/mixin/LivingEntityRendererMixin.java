@@ -1,6 +1,7 @@
 package me.anastarawneh.mccinametagmod.mixin;
 
 import me.anastarawneh.mccinametagmod.MCCINametagMod;
+import me.anastarawneh.mccinametagmod.util.UnicodeChars;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.screen.ChatScreen;
@@ -71,65 +72,65 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
                     MCCINametagMod.TEAM_COLOR = style.getColor();
                 }
                 else if (MCCINametagMod.GAME_STAGE == 1) {
-                    topLabel = Text.literal("\uE0F7").setStyle(Style.EMPTY.withColor(style.getColor()).withFont(new Identifier("mcc:icon")))
+                    topLabel = Text.literal(UnicodeChars.TeamFlagBig).setStyle(Style.EMPTY.withColor(style.getColor()).withFont(new Identifier("mcc:icon")))
                             .append(Text.literal(" ").setStyle(Style.EMPTY.withColor(Formatting.WHITE)));
 
                     float health = player.getHealth();
 
-                    if (health >= 4) topLabel = topLabel.append(Text.literal("\uE087").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 3) topLabel = topLabel.append(Text.literal("\uE086").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 2) topLabel = topLabel.append(Text.literal("\uE085").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else topLabel = topLabel.append(Text.literal("\uE084").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    if (health >= 4) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar2_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 3) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar1_5).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 2) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar1_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar0_5).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
 
                     // I think on the server these paddings are positive but this looks better
                     topLabel = topLabel.append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
 
-                    if (health >= 8) topLabel = topLabel.append(Text.literal("\uE087").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 7) topLabel = topLabel.append(Text.literal("\uE086").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 6) topLabel = topLabel.append(Text.literal("\uE085").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 5) topLabel = topLabel.append(Text.literal("\uE084").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else topLabel = topLabel.append(Text.literal("\uE083").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    if (health >= 8) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar2_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 7) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar1_5).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 6) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar1_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 5) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar0_5).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar0_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
 
                     topLabel = topLabel.append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
 
-                    if (health >= 12) topLabel = topLabel.append(Text.literal("\uE087").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 11) topLabel = topLabel.append(Text.literal("\uE086").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 10) topLabel = topLabel.append(Text.literal("\uE085").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 9) topLabel = topLabel.append(Text.literal("\uE084").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else topLabel = topLabel.append(Text.literal("\uE083").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    if (health >= 12) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar2_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 11) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar1_5).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 10) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar1_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 9) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar0_5).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar0_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
 
                     topLabel = topLabel.append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
 
-                    if (health >= 16) topLabel = topLabel.append(Text.literal("\uE087").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 15) topLabel = topLabel.append(Text.literal("\uE086").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 14) topLabel = topLabel.append(Text.literal("\uE085").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 13) topLabel = topLabel.append(Text.literal("\uE084").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else topLabel = topLabel.append(Text.literal("\uE083").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    if (health >= 16) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar2_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 15) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar1_5).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 14) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar1_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 13) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar0_5).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar0_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
 
                     topLabel = topLabel.append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
 
-                    if (health >= 20) topLabel = topLabel.append(Text.literal("\uE087").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 19) topLabel = topLabel.append(Text.literal("\uE086").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 18) topLabel = topLabel.append(Text.literal("\uE085").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 17) topLabel = topLabel.append(Text.literal("\uE084").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    if (health >= 20) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar2_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 19) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar1_5).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 18) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar1_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 17) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar0_5).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
                     else topLabel = topLabel.append(Text.literal(switch ((int) health) {
-                            case 16 -> "\uE097";
-                            case 15 -> "\uE096";
-                            case 14 -> "\uE095";
-                            case 13 -> "\uE094";
-                            case 12 -> "\uE093";
-                            case 11 -> "\uE092";
-                            case 10 -> "\uE091";
-                            case  9 -> "\uE090";
-                            case  8 -> "\uE08F";
-                            case  7 -> "\uE08E";
-                            case  6 -> "\uE08D";
-                            case  5 -> "\uE08C";
-                            case  4 -> "\uE08B";
-                            case  3 -> "\uE08A";
-                            case  2 -> "\uE089";
-                            case  1 -> "\uE088";
-                            default -> "\uE083";
+                            case 16 -> UnicodeChars.HealthNum8_0;
+                            case 15 -> UnicodeChars.HealthNum7_5;
+                            case 14 -> UnicodeChars.HealthNum7_0;
+                            case 13 -> UnicodeChars.HealthNum6_5;
+                            case 12 -> UnicodeChars.HealthNum6_0;
+                            case 11 -> UnicodeChars.HealthNum5_5;
+                            case 10 -> UnicodeChars.HealthNum5_0;
+                            case  9 -> UnicodeChars.HealthNum4_5;
+                            case  8 -> UnicodeChars.HealthNum4_0;
+                            case  7 -> UnicodeChars.HealthNum3_5;
+                            case  6 -> UnicodeChars.HealthNum3_0;
+                            case  5 -> UnicodeChars.HealthNum2_5;
+                            case  4 -> UnicodeChars.HealthNum2_0;
+                            case  3 -> UnicodeChars.HealthNum1_5;
+                            case  2 -> UnicodeChars.HealthNum1_0;
+                            case  1 -> UnicodeChars.HealthNum0_5;
+                            default -> UnicodeChars.HealthBar0_0;
                         }).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
 
                     bottomLabel = Text.literal(playerName).setStyle(Style.EMPTY.withColor(style.getColor()).withFont(new Identifier("minecraft:default")));
@@ -149,65 +150,65 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
                     MCCINametagMod.TEAM_COLOR = style.getColor();
                 }
                 else if (MCCINametagMod.GAME_STAGE == 1) {
-                    topLabel = Text.literal("\uE0F7").setStyle(Style.EMPTY.withColor(style.getColor()).withFont(new Identifier("mcc:icon")))
+                    topLabel = Text.literal(UnicodeChars.TeamFlagBig).setStyle(Style.EMPTY.withColor(style.getColor()).withFont(new Identifier("mcc:icon")))
                             .append(Text.literal(" ").setStyle(Style.EMPTY.withColor(Formatting.WHITE)));
 
                     float health = player.getHealth();
 
-                    if (health >= 4) topLabel = topLabel.append(Text.literal("\uE087").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 3) topLabel = topLabel.append(Text.literal("\uE086").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 2) topLabel = topLabel.append(Text.literal("\uE085").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else topLabel = topLabel.append(Text.literal("\uE084").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    if (health >= 4) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar2_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 3) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar1_5).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 2) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar1_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar0_5).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
 
                     // I think on the server these paddings are positive but this looks better
                     topLabel = topLabel.append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
 
-                    if (health >= 8) topLabel = topLabel.append(Text.literal("\uE087").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 7) topLabel = topLabel.append(Text.literal("\uE086").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 6) topLabel = topLabel.append(Text.literal("\uE085").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 5) topLabel = topLabel.append(Text.literal("\uE084").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else topLabel = topLabel.append(Text.literal("\uE083").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    if (health >= 8) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar2_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 7) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar1_5).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 6) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar1_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 5) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar0_5).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar0_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
 
                     topLabel = topLabel.append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
 
-                    if (health >= 12) topLabel = topLabel.append(Text.literal("\uE087").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 11) topLabel = topLabel.append(Text.literal("\uE086").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 10) topLabel = topLabel.append(Text.literal("\uE085").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 9) topLabel = topLabel.append(Text.literal("\uE084").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else topLabel = topLabel.append(Text.literal("\uE083").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    if (health >= 12) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar2_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 11) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar1_5).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 10) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar1_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 9) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar0_5).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar0_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
 
                     topLabel = topLabel.append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
 
-                    if (health >= 16) topLabel = topLabel.append(Text.literal("\uE087").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 15) topLabel = topLabel.append(Text.literal("\uE086").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 14) topLabel = topLabel.append(Text.literal("\uE085").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 13) topLabel = topLabel.append(Text.literal("\uE084").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else topLabel = topLabel.append(Text.literal("\uE083").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    if (health >= 16) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar2_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 15) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar1_5).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 14) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar1_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 13) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar0_5).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar0_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
 
                     topLabel = topLabel.append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
 
-                    if (health >= 20) topLabel = topLabel.append(Text.literal("\uE087").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 19) topLabel = topLabel.append(Text.literal("\uE086").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 18) topLabel = topLabel.append(Text.literal("\uE085").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-                    else if (health == 17) topLabel = topLabel.append(Text.literal("\uE084").setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    if (health >= 20) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar2_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 19) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar1_5).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 18) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar1_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    else if (health == 17) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar0_5).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
                     else topLabel = topLabel.append(Text.literal(switch ((int) health) {
-                            case 16 -> "\uE097";
-                            case 15 -> "\uE096";
-                            case 14 -> "\uE095";
-                            case 13 -> "\uE094";
-                            case 12 -> "\uE093";
-                            case 11 -> "\uE092";
-                            case 10 -> "\uE091";
-                            case  9 -> "\uE090";
-                            case  8 -> "\uE08F";
-                            case  7 -> "\uE08E";
-                            case  6 -> "\uE08D";
-                            case  5 -> "\uE08C";
-                            case  4 -> "\uE08B";
-                            case  3 -> "\uE08A";
-                            case  2 -> "\uE089";
-                            case  1 -> "\uE088";
-                            default -> "\uE083";
+                            case 16 -> UnicodeChars.HealthNum8_0;
+                            case 15 -> UnicodeChars.HealthNum7_5;
+                            case 14 -> UnicodeChars.HealthNum7_0;
+                            case 13 -> UnicodeChars.HealthNum6_5;
+                            case 12 -> UnicodeChars.HealthNum6_0;
+                            case 11 -> UnicodeChars.HealthNum5_5;
+                            case 10 -> UnicodeChars.HealthNum5_0;
+                            case  9 -> UnicodeChars.HealthNum4_5;
+                            case  8 -> UnicodeChars.HealthNum4_0;
+                            case  7 -> UnicodeChars.HealthNum3_5;
+                            case  6 -> UnicodeChars.HealthNum3_0;
+                            case  5 -> UnicodeChars.HealthNum2_5;
+                            case  4 -> UnicodeChars.HealthNum2_0;
+                            case  3 -> UnicodeChars.HealthNum1_5;
+                            case  2 -> UnicodeChars.HealthNum1_0;
+                            case  1 -> UnicodeChars.HealthNum0_5;
+                            default -> UnicodeChars.HealthBar0_0;
                         }).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
 
                     bottomLabel = Text.literal(playerName).setStyle(Style.EMPTY.withColor(style.getColor()).withFont(new Identifier("minecraft:default")));
@@ -224,7 +225,7 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
                 int achievementpoints = Integer.parseInt(actionBar.getSiblings().get(5).getSiblings().get(1).getSiblings().get(1).getSiblings().get(1).getString());
                 bottomLabel = Text.literal(MCCINametagMod.TEAM).setStyle(Style.EMPTY.withFont(new Identifier("mcc:icon")))
                         .append(Text.literal(factionLevel + " ").setStyle(Style.EMPTY.withFont(new Identifier("minecraft:default"))))
-                        .append(Text.literal("\uE00B").setStyle(Style.EMPTY.withFont(new Identifier("mcc:icon"))))
+                        .append(Text.literal(UnicodeChars.ChampionScoreUnicode).setStyle(Style.EMPTY.withFont(new Identifier("mcc:icon"))))
                         .append(Text.literal(String.valueOf(achievementpoints)).setStyle(Style.EMPTY.withColor(Formatting.YELLOW).withFont(new Identifier("minecraft:default"))));
             }
         } catch (Exception ex) {
