@@ -1,6 +1,7 @@
 package me.anastarawneh.mccinametagmod.mixin;
 
 import me.anastarawneh.mccinametagmod.MCCINametagMod;
+import me.anastarawneh.mccinametagmod.util.UnicodeChars;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.client.network.PlayerListEntry;
@@ -35,16 +36,16 @@ public abstract class ClientPlayNetworkHandlerMixin {
 
     @Inject(method = "onGameMessage(Lnet/minecraft/network/packet/s2c/play/GameMessageS2CPacket;)V", at = @At("TAIL"))
     public void onGameMessage(GameMessageS2CPacket packet, CallbackInfo ci) {
-        if (packet.content().getString().contains("[\uE06F] Battle Box")||
-                packet.content().getString().contains("[\uE076] Sky Battle")) {
+        if (packet.content().getString().contains("[" + UnicodeChars.BattleBox + "] Battle Box")||
+                packet.content().getString().contains("[" + UnicodeChars.SkyBattle + "] Sky Battle")) {
             MCCINametagMod.GAME_STAGE = 0;
         }
-        if (packet.content().getString().contains("[\uE0B6] You have chosen the") ||
-                packet.content().getString().contains("[\uE076] Game started!")) {
+        if (packet.content().getString().contains("[" + UnicodeChars.Plus + "] You have chosen the") ||
+                packet.content().getString().contains("[" + UnicodeChars.SkyBattle + "] Game started!")) {
             MCCINametagMod.GAME_STAGE = 1;
         }
-        if (packet.content().getString().contains("(\uE022) You receive: Battle Box Tokens") ||
-                packet.content().getString().contains("[\uE076] Game Over!")) {
+        if (packet.content().getString().contains("(" + UnicodeChars.Token + ") You receive: Battle Box Tokens") ||
+                packet.content().getString().contains("[" + UnicodeChars.SkyBattle + "] Game Over!")) {
             MCCINametagMod.GAME_STAGE = 2;
         }
     }
