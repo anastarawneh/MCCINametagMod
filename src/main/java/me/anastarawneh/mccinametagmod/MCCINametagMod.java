@@ -25,8 +25,12 @@ public class MCCINametagMod implements ModInitializer {
         LOGGER.info("Hello there");
     }
 
+    public static Config getConfig() {
+        return AutoConfig.getConfigHolder(Config.class).getConfig();
+    }
+
     public static boolean modEnabled() {
-        Config config = AutoConfig.getConfigHolder(Config.class).getConfig();
+        Config config = getConfig();
         return config.enabled &&
                 !MinecraftClient.getInstance().isInSingleplayer() &&
                 MinecraftClient.getInstance().getCurrentServerEntry() != null &&
