@@ -1,10 +1,28 @@
 plugins {
     id 'fabric-loom' version '1.0-SNAPSHOT'
     id 'maven-publish'
+    id 'com.modrinth.minotaur' version '2.+'
+    id 'co.uzzu.dotenv.gradle' version '2.0.0'
 }
 
 version = project.mod_version
 group = project.maven_group
+
+File changelogFile = new File('CHANGELOG.md')
+
+modrinth {
+    token = env.modrinthToken.value
+    projectId = 'TBQr8ROh'
+    versionNumber = "${project.version}+${minecraft_version}"
+    versionName = project.version
+    changelog = changelogFile.getText("UTF-8")
+    uploadFile = remapJar
+    dependencies {
+        required.project 'fabric-api'
+        required.project 'cloth-config'
+        optional.project 'modmenu'
+    }
+}
 
 repositories {
     // Add repositories to retrieve artifacts from in here.
@@ -66,6 +84,12 @@ java {
 jar {
     from("LICENSE") {
         rename { "${it}_${project.archivesBaseName}" }
+    }
+}
+
+remapJar {
+    afterEvaluate {
+        archiveFileName = "${archivesBaseName}-${project.version}+${minecraft_version}.jar"
     }
 }
 
