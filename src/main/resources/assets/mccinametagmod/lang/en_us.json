@@ -1,4 +1,5 @@
 {
   "text.autoconfig.mccinametagmod.title": "MCCI Nametag Mod Configuration",
-  "text.autoconfig.mccinametagmod.option.enabled": "Enable Mod"
+  "text.autoconfig.mccinametagmod.option.enabled": "Enable Mod",
+  "text.autoconfig.mccinametagmod.option.showInInventory": "Show Nametag In Inventory"
 }

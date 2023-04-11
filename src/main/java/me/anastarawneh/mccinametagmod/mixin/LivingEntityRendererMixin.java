@@ -5,6 +5,7 @@ import me.anastarawneh.mccinametagmod.util.UnicodeChars;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.screen.ChatScreen;
+import net.minecraft.client.gui.screen.ingame.InventoryScreen;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.network.PlayerListEntry;
 import net.minecraft.client.render.VertexConsumerProvider;
@@ -35,7 +36,7 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
         boolean bl = !livingEntity.isInvisibleTo(clientPlayerEntity);
 
         boolean modifiedCheck = MinecraftClient.isHudEnabled() && bl && !livingEntity.hasPassengers();
-        boolean currentScreen = minecraftClient.currentScreen == null || minecraftClient.currentScreen instanceof ChatScreen;
+        boolean currentScreen = minecraftClient.currentScreen == null || minecraftClient.currentScreen instanceof ChatScreen || (minecraftClient.currentScreen instanceof InventoryScreen && MCCINametagMod.getConfig().showInInventory);
         cir.setReturnValue(modifiedCheck && currentScreen);
     }
 
