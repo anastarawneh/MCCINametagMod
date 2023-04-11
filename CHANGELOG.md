@@ -1,0 +1,1 @@
+Added an option to show the player's nametag in the inventory preview.
