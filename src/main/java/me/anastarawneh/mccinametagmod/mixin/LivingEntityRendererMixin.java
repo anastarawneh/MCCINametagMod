@@ -13,6 +13,8 @@ import net.minecraft.client.render.entity.LivingEntityRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.scoreboard.Scoreboard;
+import net.minecraft.scoreboard.ScoreboardObjective;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
@@ -219,6 +221,22 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
                     bottomLabel = Text.literal(MCCINametagMod.RANK + MCCINametagMod.TEAM + " ").setStyle(Style.EMPTY.withColor(MCCINametagMod.COLOR).withFont(new Identifier("mcc:icon"))).append(Text.literal(playerName).setStyle(Style.EMPTY.withFont(new Identifier("minecraft:default"))));
                 }
             }
+            else if (header.contains("Parkour Warrior")) {
+                topLabel = Text.literal(playerName).setStyle(Style.EMPTY.withColor(MCCINametagMod.COLOR));
+                Text actionBar = ((IngameHudAccessor) MinecraftClient.getInstance().inGameHud).getOverlayMessage();
+                int factionLevel = player.experienceLevel;
+                int achievementpoints = Integer.parseInt(actionBar.getSiblings().get(8).getSiblings().get(1).getSiblings().get(1).getSiblings().get(1).getString());
+                int medals = -1;
+                for (PlayerListEntry entry : MinecraftClient.getInstance().player.networkHandler.getListedPlayerListEntries())
+                    if (entry.getDisplayName() != null && entry.getDisplayName().toString().contains("color=yellow"))
+                        medals = Integer.parseInt(entry.getDisplayName().getSiblings().get(1).getString());
+                bottomLabel = Text.literal(MCCINametagMod.TEAM).setStyle(Style.EMPTY.withFont(new Identifier("mcc:icon")))
+                        .append(Text.literal(factionLevel + " ").setStyle(Style.EMPTY.withFont(new Identifier("minecraft:default"))))
+                        .append(Text.literal(UnicodeChars.ChampionScoreUnicode).setStyle(Style.EMPTY.withFont(new Identifier("mcc:icon"))))
+                        .append(Text.literal(achievementpoints + " ").setStyle(Style.EMPTY.withColor(Formatting.YELLOW).withFont(new Identifier("minecraft:default"))))
+                        .append(Text.literal(UnicodeChars.MedalUnicode).setStyle(Style.EMPTY.withFont(new Identifier("mcc:icon"))))
+                        .append(Text.literal(String.valueOf(medals)).setStyle(Style.EMPTY.withColor(Formatting.YELLOW).withFont(new Identifier("minecraft:default"))));
+            }
             else {
                 topLabel = Text.literal(playerName).setStyle(Style.EMPTY.withColor(MCCINametagMod.COLOR));
                 Text actionBar = ((IngameHudAccessor) MinecraftClient.getInstance().inGameHud).getOverlayMessage();
@@ -228,6 +246,17 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
                         .append(Text.literal(factionLevel + " ").setStyle(Style.EMPTY.withFont(new Identifier("minecraft:default"))))
                         .append(Text.literal(UnicodeChars.ChampionScoreUnicode).setStyle(Style.EMPTY.withFont(new Identifier("mcc:icon"))))
                         .append(Text.literal(String.valueOf(achievementpoints)).setStyle(Style.EMPTY.withColor(Formatting.YELLOW).withFont(new Identifier("minecraft:default"))));
+
+                if (MinecraftClient.getInstance().player.getScoreboard().getObjectiveForSlot(1).getDisplayName().getString().contains("PARKOUR WARRIOR"))
+                {
+                    Scoreboard scoreboard = MinecraftClient.getInstance().player.getScoreboard();
+                    ScoreboardObjective obj = scoreboard.getObjectiveForSlot(1);
+                    int medals = Integer.parseInt(scoreboard.getPlayerTeam(scoreboard.getAllPlayerScores(obj).stream().toList().get(4).getPlayerName()).getPrefix()
+                            .getSiblings().get(0).getSiblings().get(0).getSiblings().get(0).getSiblings().get(0).getString());
+                    bottomLabel = bottomLabel
+                            .append(Text.literal(" " + UnicodeChars.MedalUnicode).setStyle(Style.EMPTY.withFont(new Identifier("mcc:icon"))))
+                            .append(Text.literal(String.valueOf(medals)).setStyle(Style.EMPTY.withColor(Formatting.YELLOW).withFont(new Identifier("minecraft:default"))));
+                }
             }
         } catch (Exception ex) {
             topLabel = Text.literal(playerName).setStyle(Style.EMPTY.withColor(Formatting.GRAY));
