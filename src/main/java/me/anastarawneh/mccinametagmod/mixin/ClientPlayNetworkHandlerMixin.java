@@ -44,7 +44,7 @@ public abstract class ClientPlayNetworkHandlerMixin {
                 packet.content().getString().contains("[" + UnicodeChars.SkyBattle + "] Game started!")) {
             MCCINametagMod.GAME_STAGE = 1;
         }
-        if (packet.content().getString().contains("(" + UnicodeChars.Token + ") You receive: Battle Box Tokens") ||
+        if (packet.content().getString().contains("[" + UnicodeChars.BattleBox + "] Top players") ||
                 packet.content().getString().contains("[" + UnicodeChars.SkyBattle + "] Game Over!")) {
             MCCINametagMod.GAME_STAGE = 2;
         }
