@@ -13,7 +13,7 @@ File changelogFile = new File('CHANGELOG.md')
 modrinth {
     token = env.modrinthToken.value
     projectId = 'TBQr8ROh'
-    versionNumber = "${project.version}+${minecraft_version}"
+    versionNumber = "${project.version}"
     versionName = project.version
     changelog = changelogFile.getText("UTF-8")
     uploadFile = remapJar
