@@ -1,1 +1,1 @@
-Fixed an error in Parkour Warrior when getting a medal, and removed hard Minecraft version support. One jar should now be compatible with multiple versions.
+Battle Box hotfix.
