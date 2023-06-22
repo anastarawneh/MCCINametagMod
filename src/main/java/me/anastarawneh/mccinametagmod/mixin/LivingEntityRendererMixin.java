@@ -42,6 +42,8 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
         cir.setReturnValue(modifiedCheck && currentScreen);
     }
 
+    private int achievementPoints = -1;
+
     @Override
     public void renderLabelIfPresent(T entity, Text text, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, CallbackInfo ci) {
         if (!(entity instanceof PlayerEntity player) || !player.isMainPlayer()) {
@@ -225,7 +227,12 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
                 topLabel = Text.literal(playerName).setStyle(Style.EMPTY.withColor(MCCINametagMod.COLOR));
                 Text actionBar = ((IngameHudAccessor) MinecraftClient.getInstance().inGameHud).getOverlayMessage();
                 int factionLevel = player.experienceLevel;
-                int achievementpoints = Integer.parseInt(actionBar.getSiblings().get(8).getSiblings().get(1).getSiblings().get(1).getSiblings().get(1).getString());
+                try {
+                    achievementPoints = Integer.parseInt(actionBar.getSiblings().get(8).getSiblings().get(1).getSiblings().get(1).getSiblings().get(1).getString());
+                }
+                catch (Exception ignored) {
+
+                }
                 int medals = -1;
                 for (PlayerListEntry entry : MinecraftClient.getInstance().player.networkHandler.getListedPlayerListEntries())
                     if (entry.getDisplayName() != null && entry.getDisplayName().toString().contains("color=yellow"))
@@ -233,7 +240,7 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
                 bottomLabel = Text.literal(MCCINametagMod.TEAM).setStyle(Style.EMPTY.withFont(new Identifier("mcc:icon")))
                         .append(Text.literal(factionLevel + " ").setStyle(Style.EMPTY.withFont(new Identifier("minecraft:default"))))
                         .append(Text.literal(UnicodeChars.ChampionScoreUnicode).setStyle(Style.EMPTY.withFont(new Identifier("mcc:icon"))))
-                        .append(Text.literal(achievementpoints + " ").setStyle(Style.EMPTY.withColor(Formatting.YELLOW).withFont(new Identifier("minecraft:default"))))
+                        .append(Text.literal(achievementPoints + " ").setStyle(Style.EMPTY.withColor(Formatting.YELLOW).withFont(new Identifier("minecraft:default"))))
                         .append(Text.literal(UnicodeChars.MedalUnicode).setStyle(Style.EMPTY.withFont(new Identifier("mcc:icon"))))
                         .append(Text.literal(String.valueOf(medals)).setStyle(Style.EMPTY.withColor(Formatting.YELLOW).withFont(new Identifier("minecraft:default"))));
             }
@@ -241,11 +248,11 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
                 topLabel = Text.literal(playerName).setStyle(Style.EMPTY.withColor(MCCINametagMod.COLOR));
                 Text actionBar = ((IngameHudAccessor) MinecraftClient.getInstance().inGameHud).getOverlayMessage();
                 int factionLevel = player.experienceLevel;
-                int achievementpoints = Integer.parseInt(actionBar.getSiblings().get(5).getSiblings().get(1).getSiblings().get(1).getSiblings().get(1).getString());
+                achievementPoints = Integer.parseInt(actionBar.getSiblings().get(5).getSiblings().get(1).getSiblings().get(1).getSiblings().get(1).getString());
                 bottomLabel = Text.literal(MCCINametagMod.TEAM).setStyle(Style.EMPTY.withFont(new Identifier("mcc:icon")))
                         .append(Text.literal(factionLevel + " ").setStyle(Style.EMPTY.withFont(new Identifier("minecraft:default"))))
                         .append(Text.literal(UnicodeChars.ChampionScoreUnicode).setStyle(Style.EMPTY.withFont(new Identifier("mcc:icon"))))
-                        .append(Text.literal(String.valueOf(achievementpoints)).setStyle(Style.EMPTY.withColor(Formatting.YELLOW).withFont(new Identifier("minecraft:default"))));
+                        .append(Text.literal(String.valueOf(achievementPoints)).setStyle(Style.EMPTY.withColor(Formatting.YELLOW).withFont(new Identifier("minecraft:default"))));
 
                 if (MinecraftClient.getInstance().player.getScoreboard().getObjectiveForSlot(1).getDisplayName().getString().contains("PARKOUR WARRIOR"))
                 {
