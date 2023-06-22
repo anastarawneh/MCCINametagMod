@@ -17,6 +17,7 @@ modrinth {
     versionName = project.version
     changelog = changelogFile.getText("UTF-8")
     uploadFile = remapJar
+    gameVersions = Arrays.asList(supported_versions.split(','))
     dependencies {
         required.project 'fabric-api'
         required.project 'cloth-config'
@@ -89,7 +90,7 @@ jar {
 
 remapJar {
     afterEvaluate {
-        archiveFileName = "${archivesBaseName}-${project.version}+${minecraft_version}.jar"
+        archiveFileName = "${archivesBaseName}-${project.version}.jar"
     }
 }
 
