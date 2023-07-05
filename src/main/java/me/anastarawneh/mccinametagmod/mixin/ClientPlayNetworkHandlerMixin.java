@@ -2,6 +2,7 @@ package me.anastarawneh.mccinametagmod.mixin;
 
 import me.anastarawneh.mccinametagmod.MCCINametagMod;
 import me.anastarawneh.mccinametagmod.util.UnicodeChars;
+import me.anastarawneh.mccinametagmod.util.Util;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.client.network.PlayerListEntry;
@@ -28,6 +29,7 @@ public abstract class ClientPlayNetworkHandlerMixin {
                     MCCINametagMod.TEAM = tabEntry.getDisplayName().getSiblings().get(1).getString();
                     MCCINametagMod.RANK = tabEntry.getDisplayName().getSiblings().get(0).getString();
                     MCCINametagMod.COLOR = tabEntry.getDisplayName().getSiblings().get(3).getStyle().getColor();
+                    MCCINametagMod.FACTION_COLOR = Util.GetFactionColor();
                     break;
                 }
             }
@@ -36,16 +38,19 @@ public abstract class ClientPlayNetworkHandlerMixin {
 
     @Inject(method = "onGameMessage(Lnet/minecraft/network/packet/s2c/play/GameMessageS2CPacket;)V", at = @At("TAIL"))
     public void onGameMessage(GameMessageS2CPacket packet, CallbackInfo ci) {
-        if (packet.content().getString().contains("[" + UnicodeChars.BattleBox + "] Battle Box")||
-                packet.content().getString().contains("[" + UnicodeChars.SkyBattle + "] Sky Battle")) {
+        if (packet.content().getString().contains("[" + UnicodeChars.BattleBox + "] Battle Box") ||
+                packet.content().getString().contains("[" + UnicodeChars.SkyBattle + "] Sky Battle") ||
+                packet.content().getString().contains("[" + UnicodeChars.ParkourWarrior + "] Parkour Warrior")) {
             MCCINametagMod.GAME_STAGE = 0;
         }
         if (packet.content().getString().contains("[" + UnicodeChars.Plus + "] You have chosen the") ||
-                packet.content().getString().contains("[" + UnicodeChars.SkyBattle + "] Game started!")) {
+                packet.content().getString().contains("[" + UnicodeChars.SkyBattle + "] Game started!") ||
+                packet.content().getString().contains("[" + UnicodeChars.ParkourWarrior + "] Game Over!")) {
             MCCINametagMod.GAME_STAGE = 1;
         }
         if (packet.content().getString().contains("[" + UnicodeChars.BattleBox + "] Top players") ||
-                packet.content().getString().contains("[" + UnicodeChars.SkyBattle + "] Game Over!")) {
+                packet.content().getString().contains("[" + UnicodeChars.SkyBattle + "] Game Over!") ||
+                packet.content().getString().contains(MCCINametagMod.TEAM + ") You receive:")) {
             MCCINametagMod.GAME_STAGE = 2;
         }
     }

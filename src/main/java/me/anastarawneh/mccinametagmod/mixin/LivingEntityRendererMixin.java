@@ -223,12 +223,12 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
                     bottomLabel = Text.literal(MCCINametagMod.RANK + MCCINametagMod.TEAM + " ").setStyle(Style.EMPTY.withColor(MCCINametagMod.COLOR).withFont(new Identifier("mcc:icon"))).append(Text.literal(playerName).setStyle(Style.EMPTY.withFont(new Identifier("minecraft:default"))));
                 }
             }
-            else if (header.contains("Parkour Warrior")) {
+            else if (header.contains("Course #")) {
                 topLabel = Text.literal(playerName).setStyle(Style.EMPTY.withColor(MCCINametagMod.COLOR));
                 Text actionBar = ((IngameHudAccessor) MinecraftClient.getInstance().inGameHud).getOverlayMessage();
                 int factionLevel = player.experienceLevel;
                 try {
-                    achievementPoints = Integer.parseInt(actionBar.getSiblings().get(8).getSiblings().get(1).getSiblings().get(1).getSiblings().get(1).getString());
+                    achievementPoints = Integer.parseInt(actionBar.getSiblings().get(3).getSiblings().get(1).getSiblings().get(1).getSiblings().get(1).getString());
                 }
                 catch (Exception ignored) {
 
@@ -243,6 +243,199 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
                         .append(Text.literal(achievementPoints + " ").setStyle(Style.EMPTY.withColor(Formatting.YELLOW).withFont(new Identifier("minecraft:default"))))
                         .append(Text.literal(UnicodeChars.MedalUnicode).setStyle(Style.EMPTY.withFont(new Identifier("mcc:icon"))))
                         .append(Text.literal(String.valueOf(medals)).setStyle(Style.EMPTY.withColor(Formatting.YELLOW).withFont(new Identifier("minecraft:default"))));
+            }
+            else if (header.contains("PARKOUR WARRIOR SURVIVOR")) {
+                if (MCCINametagMod.GAME_STAGE == 0) {
+                    topLabel = Text.literal(UnicodeChars.TeamFlagBig).setStyle(Style.EMPTY.withColor(MCCINametagMod.FACTION_COLOR).withFont(new Identifier("mcc:icon")))
+                            .append(Text.literal(" ").setStyle(Style.EMPTY.withColor(Formatting.WHITE)));
+
+                    float health = player.getHealth() / 2;
+                    float maxHealth = player.getMaxHealth() / 2;
+                    // We can divide by two because hearts are only lost one at a time.
+
+                    if (maxHealth == 1) {
+                        topLabel = topLabel.append(Text.literal(UnicodeChars.DisabledHealthBar1_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))))
+                                .append(Text.literal(UnicodeChars.DisabledHealthBar2_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))))
+                                .append(Text.literal(UnicodeChars.DisabledHealthBar2_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))))
+                                .append(Text.literal(UnicodeChars.DisabledHealthBar2_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))))
+                                .append(Text.literal(UnicodeChars.DisabledHealthBar2_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    }
+                    else if (maxHealth == 3) {
+                        if (health > 1) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar2_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+                        else topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar1_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+
+                        if (health == 3) topLabel = topLabel.append(Text.literal(UnicodeChars.DisabledHealthBar1_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+                        else topLabel = topLabel.append(Text.literal(UnicodeChars.DisabledHealthBar1_0Hit).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+
+                        topLabel = topLabel.append(Text.literal(UnicodeChars.DisabledHealthBar2_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))))
+                                .append(Text.literal(UnicodeChars.DisabledHealthBar2_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))))
+                                .append(Text.literal(UnicodeChars.DisabledHealthBar2_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    }
+                    else if (maxHealth == 5) {
+                        if (health > 1) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar2_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+                        else topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar1_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+
+                        if (health > 3) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar2_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+                        else if (health == 3) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar1_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+                        else topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar0_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                    .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+
+                        if (health == 5) topLabel = topLabel.append(Text.literal(UnicodeChars.DisabledHealthBar1_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+                        else topLabel = topLabel.append(Text.literal(UnicodeChars.DisabledHealthBar1_0Hit).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                    .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+
+                        topLabel = topLabel.append(Text.literal(UnicodeChars.DisabledHealthBar2_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))))
+                                .append(Text.literal(UnicodeChars.DisabledHealthBar2_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    }
+                    else if (maxHealth == 7) {
+                        if (health > 1) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar2_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+                        else topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar1_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+
+                        if (health > 3) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar2_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+                        else if (health == 3) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar1_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+                        else topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar0_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                    .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+
+                        if (health > 5) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar2_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+                        else if (health == 5) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar1_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+                        else topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar0_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                    .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+
+                        if (health == 7) topLabel = topLabel.append(Text.literal(UnicodeChars.DisabledHealthBar1_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+                        else topLabel = topLabel.append(Text.literal(UnicodeChars.DisabledHealthBar1_0Hit).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+
+                        topLabel = topLabel.append(Text.literal(UnicodeChars.DisabledHealthBar2_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    }
+                    else if (maxHealth == 8) {
+                        if (health > 1) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar2_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+                        else topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar1_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+
+                        if (health > 3) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar2_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+                        else if (health == 3) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar1_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+                        else topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar0_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                    .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+
+                        if (health > 5) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar2_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+                        else if (health == 5) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar1_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+                        else topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar0_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                    .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+
+                        if (health > 7) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar2_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+                        else if (health == 7) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar1_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+                        else topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar0_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                    .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+
+                        topLabel = topLabel.append(Text.literal(UnicodeChars.DisabledHealthBar2_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                    }
+                    else if (maxHealth == 9) {
+                        if (health > 1) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar2_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+                        else topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar1_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+
+                        if (health > 3) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar2_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+                        else if (health == 3) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar1_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+                        else topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar0_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                    .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+
+                        if (health > 5) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar2_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+                        else if (health == 5) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar1_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+                        else topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar0_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                    .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+
+                        if (health > 7) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar2_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+                        else if (health == 7) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar1_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+                        else topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar0_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                    .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+
+                        if (health == 9) topLabel = topLabel.append(Text.literal(UnicodeChars.DisabledHealthBar1_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+                        else topLabel = topLabel.append(Text.literal(UnicodeChars.DisabledHealthBar1_0Hit).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+                    }
+                    else {
+                        if (health > 1) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar2_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+                        else topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar1_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+
+                        if (health > 3) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar2_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+                        else if (health == 3) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar1_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+                        else topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar0_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                    .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+
+                        if (health > 5) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar2_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+                        else if (health == 5) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar1_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+                        else topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar0_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                    .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+
+                        if (health > 7) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar2_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+                        else if (health == 7) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar1_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+                        else topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar0_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                    .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+
+                        if (health > 9) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar2_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+                        else if (health == 9) topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar1_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+                        else topLabel = topLabel.append(Text.literal(UnicodeChars.HealthBar0_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))))
+                                    .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+                    }
+
+                    bottomLabel = Text.literal(playerName).setStyle(Style.EMPTY.withColor(MCCINametagMod.FACTION_COLOR).withFont(new Identifier("minecraft:default")));
+                }
+                else if (MCCINametagMod.GAME_STAGE == 1) {
+                    topLabel = Text.literal("");
+                    bottomLabel = Text.literal(playerName).setStyle(Style.EMPTY.withColor(MCCINametagMod.FACTION_COLOR));
+                }
+                else {
+                    topLabel = Text.literal("");
+                    bottomLabel = Text.literal(MCCINametagMod.RANK + MCCINametagMod.TEAM + " ").setStyle(Style.EMPTY.withColor(MCCINametagMod.COLOR).withFont(new Identifier("mcc:icon"))).append(Text.literal(playerName).setStyle(Style.EMPTY.withFont(new Identifier("minecraft:default"))));
+                }
             }
             else {
                 topLabel = Text.literal(playerName).setStyle(Style.EMPTY.withColor(MCCINametagMod.COLOR));
