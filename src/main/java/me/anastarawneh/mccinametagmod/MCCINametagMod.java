@@ -17,7 +17,6 @@ public class MCCINametagMod implements ModInitializer {
     public static String RANK = "";
     public static TextColor COLOR = TextColor.fromFormatting(Formatting.DARK_GRAY);
     public static int GAME_STAGE = 0;
-    public static TextColor TEAM_COLOR = TextColor.fromFormatting(Formatting.GRAY);
     public static TextColor FACTION_COLOR = TextColor.fromFormatting(Formatting.GRAY);
 
     @Override
@@ -30,6 +29,7 @@ public class MCCINametagMod implements ModInitializer {
         return AutoConfig.getConfigHolder(Config.class).getConfig();
     }
 
+    @SuppressWarnings("BooleanMethodIsAlwaysInverted")
     public static boolean modEnabled() {
         Config config = getConfig();
         return config.enabled &&

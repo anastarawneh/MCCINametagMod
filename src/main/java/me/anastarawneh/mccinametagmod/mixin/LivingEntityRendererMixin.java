@@ -74,7 +74,6 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
                 if (MCCINametagMod.GAME_STAGE == 0) {
                     topLabel = Text.literal("");
                     bottomLabel = Text.literal(playerName).setStyle(Style.EMPTY.withColor(style.getColor()));
-                    MCCINametagMod.TEAM_COLOR = style.getColor();
                 }
                 else if (MCCINametagMod.GAME_STAGE == 1) {
                     topLabel = Text.literal(UnicodeChars.TeamFlagBig).setStyle(Style.EMPTY.withColor(style.getColor()).withFont(new Identifier("mcc:icon")))
@@ -152,7 +151,6 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
                 if (MCCINametagMod.GAME_STAGE == 0) {
                     topLabel = Text.literal("");
                     bottomLabel = Text.literal(playerName).setStyle(Style.EMPTY.withColor(style.getColor()));
-                    MCCINametagMod.TEAM_COLOR = style.getColor();
                 }
                 else if (MCCINametagMod.GAME_STAGE == 1) {
                     topLabel = Text.literal(UnicodeChars.TeamFlagBig).setStyle(Style.EMPTY.withColor(style.getColor()).withFont(new Identifier("mcc:icon")))
@@ -441,7 +439,7 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
                 topLabel = Text.literal(playerName).setStyle(Style.EMPTY.withColor(MCCINametagMod.COLOR));
                 Text actionBar = ((IngameHudAccessor) MinecraftClient.getInstance().inGameHud).getOverlayMessage();
                 int factionLevel = player.experienceLevel;
-                achievementPoints = Integer.parseInt(actionBar.getSiblings().get(5).getSiblings().get(1).getSiblings().get(1).getSiblings().get(1).getString());
+                achievementPoints = Integer.parseInt(actionBar.getSiblings().get(3).getSiblings().get(1).getSiblings().get(1).getSiblings().get(1).getString());
                 bottomLabel = Text.literal(MCCINametagMod.TEAM).setStyle(Style.EMPTY.withFont(new Identifier("mcc:icon")))
                         .append(Text.literal(factionLevel + " ").setStyle(Style.EMPTY.withFont(new Identifier("minecraft:default"))))
                         .append(Text.literal(UnicodeChars.ChampionScoreUnicode).setStyle(Style.EMPTY.withFont(new Identifier("mcc:icon"))))
@@ -469,7 +467,7 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
             float f = entity.getHeight() + 0.55F;
             int i = "deadmau5".equals(bottomLabel.getString()) ? -10 : 0;
             matrices.push();
-            matrices.translate(0.0, (double)f, 0.0);
+            matrices.translate(0.0, f, 0.0);
             matrices.multiply(this.dispatcher.getRotation());
             matrices.scale(-0.025F, -0.025F, 0.025F);
             Matrix4f matrix4f = matrices.peek().getPositionMatrix();
@@ -488,7 +486,7 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
                 f = entity.getHeight() + 0.92F;
                 i = "deadmau5".equals(topLabel.getString()) ? -10 : 0;
                 matrices.push();
-                matrices.translate(0.0, (double) f, 0.0);
+                matrices.translate(0.0, f, 0.0);
                 matrices.multiply(getDispatcher().getRotation());
                 matrices.scale(-0.025F, -0.025F, 0.025F);
                 matrix4f = matrices.peek().getPositionMatrix();
