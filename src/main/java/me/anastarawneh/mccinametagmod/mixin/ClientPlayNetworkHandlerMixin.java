@@ -44,7 +44,7 @@ public abstract class ClientPlayNetworkHandlerMixin {
             MCCINametagMod.GAME_STAGE = 0;
         }
         if (packet.content().getString().contains("[" + UnicodeChars.Plus + "] You have chosen the") ||
-                packet.content().getString().contains("[" + UnicodeChars.SkyBattle + "] Game started!") ||
+                packet.content().getString().contains("[" + UnicodeChars.SkyBattle + "] Game Started!") ||
                 packet.content().getString().contains("[" + UnicodeChars.ParkourWarrior + "] Game Over!")) {
             MCCINametagMod.GAME_STAGE = 1;
         }

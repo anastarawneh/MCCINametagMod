@@ -226,7 +226,7 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
                 Text actionBar = ((IngameHudAccessor) MinecraftClient.getInstance().inGameHud).getOverlayMessage();
                 int factionLevel = player.experienceLevel;
                 try {
-                    achievementPoints = Integer.parseInt(actionBar.getSiblings().get(3).getSiblings().get(1).getSiblings().get(1).getSiblings().get(1).getString());
+                    achievementPoints = Integer.parseInt(actionBar.getSiblings().get(5).getSiblings().get(1).getSiblings().get(1).getSiblings().get(1).getString());
                 }
                 catch (Exception ignored) {
 
@@ -439,7 +439,7 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
                 topLabel = Text.literal(playerName).setStyle(Style.EMPTY.withColor(MCCINametagMod.COLOR));
                 Text actionBar = ((IngameHudAccessor) MinecraftClient.getInstance().inGameHud).getOverlayMessage();
                 int factionLevel = player.experienceLevel;
-                achievementPoints = Integer.parseInt(actionBar.getSiblings().get(3).getSiblings().get(1).getSiblings().get(1).getSiblings().get(1).getString());
+                achievementPoints = Integer.parseInt(actionBar.getSiblings().get(5).getSiblings().get(1).getSiblings().get(1).getSiblings().get(1).getString());
                 bottomLabel = Text.literal(MCCINametagMod.TEAM).setStyle(Style.EMPTY.withFont(new Identifier("mcc:icon")))
                         .append(Text.literal(factionLevel + " ").setStyle(Style.EMPTY.withFont(new Identifier("minecraft:default"))))
                         .append(Text.literal(UnicodeChars.ChampionScoreUnicode).setStyle(Style.EMPTY.withFont(new Identifier("mcc:icon"))))
