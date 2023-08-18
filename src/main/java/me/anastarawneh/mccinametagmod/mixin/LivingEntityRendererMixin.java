@@ -1,6 +1,7 @@
 package me.anastarawneh.mccinametagmod.mixin;
 
 import me.anastarawneh.mccinametagmod.MCCINametagMod;
+import me.anastarawneh.mccinametagmod.util.Game;
 import me.anastarawneh.mccinametagmod.util.UnicodeChars;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
@@ -61,21 +62,23 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
         MutableText bottomLabel;
 
         String playerName = player.getGameProfile().getName();
+        Game game = MCCINametagMod.GAME;
+        String stage = MCCINametagMod.STAGE;
+        String phaseType = MCCINametagMod.PHASE_TYPE;
         try {
-            String header = ((PlayerListHudAccessor) MinecraftClient.getInstance().inGameHud.getPlayerListHud()).getHeader().getString();
-            if (header.contains("HOLE IN THE WALL") || header.contains("TGTTOS")) {
+            if (game == Game.HOLE_IN_THE_WALL || game == Game.TGTTOS) {
                 topLabel = Text.literal("");
                 bottomLabel = Text.literal(MCCINametagMod.RANK + MCCINametagMod.TEAM + " ").setStyle(Style.EMPTY.withColor(MCCINametagMod.COLOR).withFont(new Identifier("mcc:icon"))).append(Text.literal(playerName).setStyle(Style.EMPTY.withFont(new Identifier("minecraft:default"))));
             }
-            else if (header.contains("BATTLE BOX")) {
+            else if (game == Game.BATTLE_BOX) {
                 Text text1 = MinecraftClient.getInstance().getNetworkHandler().getPlayerList().stream().map(PlayerListEntry::getDisplayName).filter(t -> t != null && t.getString().contains(MinecraftClient.getInstance().player.getGameProfile().getName())).findFirst().get();
                 Style style = text1.getSiblings().get(0).getSiblings().get(0).getStyle();
 
-                if (MCCINametagMod.GAME_STAGE == 0) {
+                if (stage.equals("") || stage.equals("countdownPhase")) {
                     topLabel = Text.literal("");
                     bottomLabel = Text.literal(playerName).setStyle(Style.EMPTY.withColor(style.getColor()));
                 }
-                else if (MCCINametagMod.GAME_STAGE == 1) {
+                else if (!stage.equals("podiumPhase")) {
                     topLabel = Text.literal(UnicodeChars.TeamFlagBig).setStyle(Style.EMPTY.withColor(style.getColor()).withFont(new Identifier("mcc:icon")))
                             .append(Text.literal(" ").setStyle(Style.EMPTY.withColor(Formatting.WHITE)));
 
@@ -144,15 +147,15 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
                     bottomLabel = Text.literal(MCCINametagMod.RANK + MCCINametagMod.TEAM + " ").setStyle(Style.EMPTY.withColor(MCCINametagMod.COLOR).withFont(new Identifier("mcc:icon"))).append(Text.literal(playerName).setStyle(Style.EMPTY.withFont(new Identifier("minecraft:default"))));
                 }
             }
-            else if (header.contains("SKY BATTLE")) {
+            else if (game == Game.SKY_BATTLE) {
                 Text text1 = MinecraftClient.getInstance().getNetworkHandler().getPlayerList().stream().map(PlayerListEntry::getDisplayName).filter(t -> t != null && t.getString().contains(MinecraftClient.getInstance().player.getGameProfile().getName())).findFirst().get();
                 Style style = text1.getSiblings().get(0).getStyle();
 
-                if (MCCINametagMod.GAME_STAGE == 0) {
+                if (stage.equals("") || stage.equals("preRound")) {
                     topLabel = Text.literal("");
                     bottomLabel = Text.literal(playerName).setStyle(Style.EMPTY.withColor(style.getColor()));
                 }
-                else if (MCCINametagMod.GAME_STAGE == 1) {
+                else if (!stage.equals("podiumPhase")) {
                     topLabel = Text.literal(UnicodeChars.TeamFlagBig).setStyle(Style.EMPTY.withColor(style.getColor()).withFont(new Identifier("mcc:icon")))
                             .append(Text.literal(" ").setStyle(Style.EMPTY.withColor(Formatting.WHITE)));
 
@@ -221,7 +224,7 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
                     bottomLabel = Text.literal(MCCINametagMod.RANK + MCCINametagMod.TEAM + " ").setStyle(Style.EMPTY.withColor(MCCINametagMod.COLOR).withFont(new Identifier("mcc:icon"))).append(Text.literal(playerName).setStyle(Style.EMPTY.withFont(new Identifier("minecraft:default"))));
                 }
             }
-            else if (header.contains("Course #")) {
+            else if (game == Game.PARKOUR_WARRIOR_DOJO) {
                 topLabel = Text.literal(playerName).setStyle(Style.EMPTY.withColor(MCCINametagMod.COLOR));
                 Text actionBar = ((IngameHudAccessor) MinecraftClient.getInstance().inGameHud).getOverlayMessage();
                 int factionLevel = player.experienceLevel;
@@ -242,8 +245,8 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
                         .append(Text.literal(UnicodeChars.MedalUnicode).setStyle(Style.EMPTY.withFont(new Identifier("mcc:icon"))))
                         .append(Text.literal(String.valueOf(medals)).setStyle(Style.EMPTY.withColor(Formatting.YELLOW).withFont(new Identifier("minecraft:default"))));
             }
-            else if (header.contains("PARKOUR WARRIOR SURVIVOR")) {
-                if (MCCINametagMod.GAME_STAGE == 0) {
+            else if (game == Game.PARKOUR_WARRIOR_SURVIVOR) {
+                if (!phaseType.equals("POST_GAME")) {
                     topLabel = Text.literal(UnicodeChars.TeamFlagBig).setStyle(Style.EMPTY.withColor(MCCINametagMod.FACTION_COLOR).withFont(new Identifier("mcc:icon")))
                             .append(Text.literal(" ").setStyle(Style.EMPTY.withColor(Formatting.WHITE)));
 
@@ -426,7 +429,7 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
 
                     bottomLabel = Text.literal(playerName).setStyle(Style.EMPTY.withColor(MCCINametagMod.FACTION_COLOR).withFont(new Identifier("minecraft:default")));
                 }
-                else if (MCCINametagMod.GAME_STAGE == 1) {
+                else if (stage.equals("postGame")) {
                     topLabel = Text.literal("");
                     bottomLabel = Text.literal(playerName).setStyle(Style.EMPTY.withColor(MCCINametagMod.FACTION_COLOR));
                 }
@@ -445,7 +448,7 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
                         .append(Text.literal(UnicodeChars.ChampionScoreUnicode).setStyle(Style.EMPTY.withFont(new Identifier("mcc:icon"))))
                         .append(Text.literal(String.valueOf(achievementPoints)).setStyle(Style.EMPTY.withColor(Formatting.YELLOW).withFont(new Identifier("minecraft:default"))));
 
-                if (MinecraftClient.getInstance().player.getScoreboard().getObjectiveForSlot(1).getDisplayName().getString().contains("PARKOUR WARRIOR"))
+                if (game == Game.PARKOUR_WARRIOR_LOBBY)
                 {
                     Scoreboard scoreboard = MinecraftClient.getInstance().player.getScoreboard();
                     ScoreboardObjective obj = scoreboard.getObjectiveForSlot(1);

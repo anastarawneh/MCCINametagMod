@@ -1,6 +1,7 @@
 package me.anastarawneh.mccinametagmod;
 
 import me.anastarawneh.mccinametagmod.config.Config;
+import me.anastarawneh.mccinametagmod.util.Game;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.Toml4jConfigSerializer;
 import net.fabricmc.api.ModInitializer;
@@ -16,8 +17,10 @@ public class MCCINametagMod implements ModInitializer {
     public static String TEAM = "";
     public static String RANK = "";
     public static TextColor COLOR = TextColor.fromFormatting(Formatting.DARK_GRAY);
-    public static int GAME_STAGE = 0;
     public static TextColor FACTION_COLOR = TextColor.fromFormatting(Formatting.GRAY);
+    public static Game GAME = Game.NONE;
+    public static String STAGE = "";
+    public static String PHASE_TYPE = "";
 
     @Override
     public void onInitialize() {

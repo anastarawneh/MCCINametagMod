@@ -28,10 +28,6 @@ public class UnicodeChars {
     public static final String DisabledHealthBar1_0 = "\uE0D2";
     public static final String DisabledHealthBar1_0Hit = "\uE0D0";
     public static final String TeamFlagBig = "\uE22A";
-    public static final String BattleBox = "\uE070";
-    public static final String SkyBattle = "\uE079";
-    public static final String ParkourWarrior = "\uE075";
-    public static final String Plus = "\uE122";
     public static final String Red0 = "\uE1D7";
     public static final String Red9 = "\uE1E0";
     public static final String Orange0 = "\uE1B9";
