@@ -21,6 +21,7 @@ modrinth {
     dependencies {
         required.project 'fabric-api'
         required.project 'cloth-config'
+        required.project 'noxesium'
         optional.project 'modmenu'
     }
 }
