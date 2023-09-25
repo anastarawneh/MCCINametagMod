@@ -14,9 +14,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(ClientboundMccServerPacket.class)
 public class ClientboundMccServerPacketMixin {
-    @Shadow @Final public String type;
+    @Shadow(remap = false) @Final public String type;
 
-    @Shadow @Final public String subType;
+    @Shadow(remap = false) @Final public String subType;
 
     @Inject(method = "receive", at = @At("HEAD"))
     private void receive(ClientPlayerEntity player, PacketSender responseSender, CallbackInfo ci) {

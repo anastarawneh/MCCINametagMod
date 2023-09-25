@@ -9,6 +9,7 @@
     "ClientboundMccServerPacketMixin",
     "ClientPlayNetworkHandlerMixin",
     "EntityRendererMixin",
+    "FontManagerMixin",
     "IngameHudAccessor",
     "LivingEntityRendererMixin"
   ],

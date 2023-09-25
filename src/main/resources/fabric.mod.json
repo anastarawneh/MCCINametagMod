@@ -26,5 +26,6 @@
     "fabricloader": ">=0.14.11",
     "fabric": "*",
     "cloth-config": "*"
-  }
+  },
+  "accessWidener": "mccinametagmod.accesswidener"
 }

@@ -6,6 +6,8 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.client.network.PlayerListEntry;
 import net.minecraft.network.packet.s2c.play.PlayerListS2CPacket;
+import net.minecraft.text.TextColor;
+import net.minecraft.util.Formatting;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -20,17 +22,24 @@ public abstract class ClientPlayNetworkHandlerMixin {
 
     @Inject(method = "onPlayerList(Lnet/minecraft/network/packet/s2c/play/PlayerListS2CPacket;)V", at = @At("TAIL"))
     public void onPlayerList(PlayerListS2CPacket packet, CallbackInfo ci) {
-        if (MCCINametagMod.TEAM.equals("")) {
-            Collection<PlayerListEntry> tabList = getPlayerList();
-            for (PlayerListEntry tabEntry : tabList) {
-                if (tabEntry.getDisplayName() != null && tabEntry.getDisplayName().getSiblings().get(3).getString().equals(MinecraftClient.getInstance().getSession().getUsername())) {
-                    MCCINametagMod.TEAM = tabEntry.getDisplayName().getSiblings().get(1).getString();
-                    MCCINametagMod.RANK = tabEntry.getDisplayName().getSiblings().get(0).getString();
-                    MCCINametagMod.COLOR = tabEntry.getDisplayName().getSiblings().get(3).getStyle().getColor();
-                    MCCINametagMod.FACTION_COLOR = Util.GetFactionColor();
-                    break;
+        try {
+            if (MCCINametagMod.TEAM.equals("")) {
+                Collection<PlayerListEntry> tabList = getPlayerList();
+                for (PlayerListEntry tabEntry : tabList) {
+                    if (tabEntry.getDisplayName() != null && tabEntry.getDisplayName().getSiblings().get(3).getString().equals(MinecraftClient.getInstance().getSession().getUsername())) {
+                        MCCINametagMod.TEAM = tabEntry.getDisplayName().getSiblings().get(1).getString();
+                        MCCINametagMod.RANK = tabEntry.getDisplayName().getSiblings().get(0).getString();
+                        MCCINametagMod.COLOR = tabEntry.getDisplayName().getSiblings().get(3).getStyle().getColor();
+                        break;
+                    }
                 }
             }
+
+            if (MCCINametagMod.FACTION_COLOR == TextColor.fromFormatting(Formatting.GRAY)) {
+                MCCINametagMod.FACTION_COLOR = Util.GetFactionColor();
+            }
+        } catch (IndexOutOfBoundsException ignored) {
+
         }
     }
 }
