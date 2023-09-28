@@ -45,6 +45,11 @@ public class ClientboundMccServerPacketMixin {
                     MCCINametagMod.PHASE_TYPE = "";
                 }
                 break;
+            case "dynaball":
+                MCCINametagMod.GAME = Game.DYNABALL;
+                MCCINametagMod.STAGE = "";
+                MCCINametagMod.PHASE_TYPE = "";
+                break;
             default:
                 if (subType.equals("parkour-warrior")) MCCINametagMod.GAME = Game.PARKOUR_WARRIOR_LOBBY;
                 else MCCINametagMod.GAME = Game.NONE;

@@ -438,6 +438,20 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
                     bottomLabel = Text.literal(MCCINametagMod.RANK + MCCINametagMod.TEAM + " ").setStyle(Style.EMPTY.withColor(MCCINametagMod.COLOR).withFont(new Identifier("mcc:icon"))).append(Text.literal(playerName).setStyle(Style.EMPTY.withFont(new Identifier("minecraft:default"))));
                 }
             }
+            else if (game == Game.DYNABALL) {
+                if (!stage.equals("podiumPhase")) {
+                    Text text1 = MinecraftClient.getInstance().getNetworkHandler().getPlayerList().stream().map(PlayerListEntry::getDisplayName).filter(t -> t != null && t.getString().contains(MinecraftClient.getInstance().player.getGameProfile().getName())).findFirst().get();
+                    Style style = text1.getSiblings().get(0).getSiblings().get(0).getStyle();
+
+                    topLabel = Text.literal("");
+                    bottomLabel = Text.literal(UnicodeChars.TeamFlag).setStyle(Style.EMPTY.withColor(style.getColor()).withFont(new Identifier("mccinametagmod:mcci_icons")))
+                            .append(Text.literal(" " + playerName).setStyle(Style.EMPTY.withFont(new Identifier("minecraft:default"))));
+                }
+                else {
+                    topLabel = Text.literal("");
+                    bottomLabel = Text.literal(MCCINametagMod.RANK + MCCINametagMod.TEAM + " ").setStyle(Style.EMPTY.withColor(MCCINametagMod.COLOR).withFont(new Identifier("mcc:icon"))).append(Text.literal(playerName).setStyle(Style.EMPTY.withFont(new Identifier("minecraft:default"))));
+                }
+            }
             else {
                 topLabel = Text.literal(playerName).setStyle(Style.EMPTY.withColor(MCCINametagMod.COLOR));
                 Text actionBar = ((IngameHudAccessor) MinecraftClient.getInstance().inGameHud).getOverlayMessage();

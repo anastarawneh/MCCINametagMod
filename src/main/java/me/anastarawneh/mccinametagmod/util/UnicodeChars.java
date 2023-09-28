@@ -28,4 +28,5 @@ public class UnicodeChars {
     public static final String DisabledHealthBar1_0 = "\uE018";
     public static final String DisabledHealthBar1_0Hit = "\uE019";
     public static final String TeamFlagBig = "\uE01A";
+    public static final String TeamFlag = "\uE01B";
 }

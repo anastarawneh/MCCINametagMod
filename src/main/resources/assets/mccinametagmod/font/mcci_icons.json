@@ -276,6 +276,15 @@
       ],
       "ascent": 10,
       "height": 16
+    },
+    {
+      "type": "bitmap",
+      "file": "mcc:_fonts/team_flag.png",
+      "chars": [
+        "\uE01B"
+      ],
+      "ascent": 7,
+      "height": 8
     }
   ]
 }
