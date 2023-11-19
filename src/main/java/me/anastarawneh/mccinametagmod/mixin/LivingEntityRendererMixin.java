@@ -74,7 +74,7 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
                 Text text1 = MinecraftClient.getInstance().getNetworkHandler().getPlayerList().stream().map(PlayerListEntry::getDisplayName).filter(t -> t != null && t.getString().contains(MinecraftClient.getInstance().player.getGameProfile().getName())).findFirst().get();
                 Style style = text1.getSiblings().get(0).getSiblings().get(0).getStyle();
 
-                if (stage.equals("") || stage.equals("countdownPhase")) {
+                if (stage.equals("")) {
                     topLabel = Text.literal("");
                     bottomLabel = Text.literal(playerName).setStyle(Style.EMPTY.withColor(style.getColor()));
                 }
@@ -155,7 +155,7 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
                     topLabel = Text.literal("");
                     bottomLabel = Text.literal(playerName).setStyle(Style.EMPTY.withColor(style.getColor()));
                 }
-                else if (!stage.equals("podiumPhase")) {
+                else if (stage.equals("inRound")) {
                     topLabel = Text.literal(UnicodeChars.TeamFlagBig).setStyle(Style.EMPTY.withColor(style.getColor()).withFont(new Identifier("mccinametagmod:mcci_icons")))
                             .append(Text.literal(" ").setStyle(Style.EMPTY.withColor(Formatting.WHITE)));
 
@@ -218,6 +218,10 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
                         }).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mccinametagmod:mcci_icons"))));
 
                     bottomLabel = Text.literal(playerName).setStyle(Style.EMPTY.withColor(style.getColor()).withFont(new Identifier("minecraft:default")));
+                }
+                else if (!stage.equals("podiumPhase")) {
+                    topLabel = Text.literal("");
+                    bottomLabel = Text.literal(playerName).setStyle(Style.EMPTY.withColor(MCCINametagMod.FACTION_COLOR));
                 }
                 else {
                     topLabel = Text.literal("");
