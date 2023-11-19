@@ -15,6 +15,7 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.scoreboard.Scoreboard;
+import net.minecraft.scoreboard.ScoreboardDisplaySlot;
 import net.minecraft.scoreboard.ScoreboardObjective;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Style;
@@ -465,7 +466,7 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
                 if (game == Game.PARKOUR_WARRIOR_LOBBY)
                 {
                     Scoreboard scoreboard = MinecraftClient.getInstance().player.getScoreboard();
-                    ScoreboardObjective obj = scoreboard.getObjectiveForSlot(1);
+                    ScoreboardObjective obj = scoreboard.getObjectiveForSlot(ScoreboardDisplaySlot.SIDEBAR);
                     int medals = Integer.parseInt(scoreboard.getPlayerTeam(scoreboard.getAllPlayerScores(obj).stream().toList().get(4).getPlayerName()).getPrefix()
                             .getSiblings().get(0).getSiblings().get(0).getSiblings().get(0).getSiblings().get(0).getString());
                     bottomLabel = bottomLabel
