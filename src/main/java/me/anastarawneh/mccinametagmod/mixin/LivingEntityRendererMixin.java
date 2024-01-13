@@ -484,6 +484,7 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
         } catch (Exception ex) {
             topLabel = Text.literal(playerName).setStyle(Style.EMPTY.withColor(Formatting.GRAY));
             bottomLabel = Text.literal("Error.").setStyle(Style.EMPTY.withColor(Formatting.DARK_RED));
+            MCCINametagMod.LATEST_EXCEPTION = ex;
         }
 
         double d = this.dispatcher.getSquaredDistanceToCamera(entity);
