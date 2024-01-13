@@ -490,7 +490,7 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
         double d = this.dispatcher.getSquaredDistanceToCamera(entity);
         if (!(d > 4096.0)) {
             boolean bl = !entity.isSneaky();
-            float f = entity.getHeight() + 0.55F;
+            float f = entity.getHeight() + 1.0F;
             int i = "deadmau5".equals(bottomLabel.getString()) ? -10 : 0;
             matrices.push();
             matrices.translate(0.0, f, 0.0);
@@ -509,7 +509,7 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
             matrices.pop();
 
             if (!topLabel.getString().equals("")) {
-                f = entity.getHeight() + 0.92F;
+                f = entity.getHeight() + 1.5F;
                 i = "deadmau5".equals(topLabel.getString()) ? -10 : 0;
                 matrices.push();
                 matrices.translate(0.0, f, 0.0);
