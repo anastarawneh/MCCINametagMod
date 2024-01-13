@@ -14,8 +14,7 @@ import net.minecraft.client.render.entity.LivingEntityRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.scoreboard.Scoreboard;
-import net.minecraft.scoreboard.ScoreboardObjective;
+import net.minecraft.scoreboard.*;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
@@ -470,8 +469,13 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
                 {
                     Scoreboard scoreboard = MinecraftClient.getInstance().player.getScoreboard();
                     ScoreboardObjective obj = scoreboard.getObjectiveForSlot(1);
-                    int medals = Integer.parseInt(scoreboard.getPlayerTeam(scoreboard.getAllPlayerScores(obj).stream().toList().get(4).getPlayerName()).getPrefix()
-                            .getSiblings().get(0).getSiblings().get(0).getSiblings().get(0).getSiblings().get(0).getString());
+                    int medals = -1;
+                    for (ScoreboardPlayerScore entry : scoreboard.getAllPlayerScores(obj).stream().toList()) {
+                        Team team = scoreboard.getPlayerTeam(entry.getPlayerName());
+                        if (!team.getPrefix().getString().contains("Total Unique Medals")) continue;
+                        medals = Integer.parseInt(team.getPrefix()
+                                .getSiblings().get(0).getSiblings().get(0).getSiblings().get(0).getSiblings().get(0).getString().replace(",", ""));
+                    }
                     bottomLabel = bottomLabel
                             .append(Text.literal(" " + UnicodeChars.MedalUnicode).setStyle(Style.EMPTY.withFont(new Identifier("mccinametagmod:mcci_icons"))))
                             .append(Text.literal(String.valueOf(medals)).setStyle(Style.EMPTY.withColor(Formatting.YELLOW).withFont(new Identifier("minecraft:default"))));
