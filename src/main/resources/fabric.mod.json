@@ -7,7 +7,10 @@
   "authors": [
     "anastarawneh"
   ],
-  "contact": {},
+  "contact": {
+    "sources": "https://github.com/anastarawneh/MCCINametagMod",
+    "issues": "https://github.com/anastarawneh/MCCINametagMod/issues"
+  },
   "license": "MIT",
   "icon": "assets/mccinametagmod/icon.png",
   "environment": "client",

@@ -16,7 +16,7 @@ import org.apache.logging.log4j.Logger;
 
 public class MCCINametagMod implements ModInitializer {
     public static final String MODID = "mccinametagmod";
-    public static final Logger LOGGER = LogManager.getLogger();
+    public static final Logger LOGGER = LogManager.getLogger("MCCINametagMod");
     public static final MutableText MESSAGE_PREFIX = Text.literal(Formatting.GRAY + "[" + Formatting.GREEN + "MCCINametagMod" + Formatting.GRAY + "] " + Formatting.RESET);
     public static String TEAM = "";
     public static String RANK = "";
