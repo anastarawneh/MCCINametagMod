@@ -470,8 +470,8 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
                     Scoreboard scoreboard = MinecraftClient.getInstance().player.getScoreboard();
                     ScoreboardObjective obj = scoreboard.getObjectiveForSlot(ScoreboardDisplaySlot.SIDEBAR);
                     int medals = -1;
-                    for (ScoreboardPlayerScore entry : scoreboard.getAllPlayerScores(obj).stream().toList()) {
-                        Team team = scoreboard.getPlayerTeam(entry.getPlayerName());
+                    for (ScoreboardEntry entry : scoreboard.getScoreboardEntries(obj).stream().toList()) {
+                        Team team = scoreboard.getScoreHolderTeam(entry.owner());
                         if (!team.getPrefix().getString().contains("Total Unique Medals")) continue;
                         medals = Integer.parseInt(team.getPrefix()
                                 .getSiblings().get(0).getSiblings().get(0).getSiblings().get(0).getSiblings().get(0).getString().replace(",", ""));
