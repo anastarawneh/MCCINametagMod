@@ -1,1 +1,1 @@
-Added support for 1.20.3 and 1.20.4, fixed the nametag heights that were raised a while ago, and added a debugging command.
+Added support for Rocket Spleef Rush and Crown levels.
