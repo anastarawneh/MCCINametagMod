@@ -10,8 +10,10 @@
     "ClientPlayNetworkHandlerMixin",
     "EntityRendererMixin",
     "FontManagerMixin",
+    "GenericContainerScreenMixin",
     "IngameHudAccessor",
-    "LivingEntityRendererMixin"
+    "LivingEntityRendererMixin",
+    "ServerResourcePackLoaderMixin"
   ],
   "injectors": {
     "defaultRequire": 1

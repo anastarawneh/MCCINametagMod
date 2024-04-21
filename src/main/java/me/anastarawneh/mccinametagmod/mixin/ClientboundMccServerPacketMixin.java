@@ -50,6 +50,11 @@ public class ClientboundMccServerPacketMixin {
                 MCCINametagMod.STAGE = "";
                 MCCINametagMod.PHASE_TYPE = "";
                 break;
+            case "rocket-spleef":
+                MCCINametagMod.GAME = Game.ROCKET_SPLEEF_RUSH;
+                MCCINametagMod.STAGE = "";
+                MCCINametagMod.PHASE_TYPE = "";
+                break;
             default:
                 if (subType.equals("parkour-warrior")) MCCINametagMod.GAME = Game.PARKOUR_WARRIOR_LOBBY;
                 else MCCINametagMod.GAME = Game.NONE;

@@ -18,8 +18,7 @@ public class LogExceptionCommand {
             context.getSource().sendFeedback(MCCINametagMod.MESSAGE_PREFIX.copy().append("Nothing to debug."));
             return 1;
         }
-        MCCINametagMod.LOGGER.error("Logging latest exception:");
-        MCCINametagMod.LOGGER.throwing(MCCINametagMod.LATEST_EXCEPTION);
+        MCCINametagMod.LOGGER.warn("Throwing latest exception:", MCCINametagMod.LATEST_EXCEPTION);
         context.getSource().sendFeedback(MCCINametagMod.MESSAGE_PREFIX.copy().append("Logged the latest exception."));
         MCCINametagMod.LATEST_EXCEPTION = null;
         return 1;

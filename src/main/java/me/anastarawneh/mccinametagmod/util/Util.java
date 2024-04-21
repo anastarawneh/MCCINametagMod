@@ -24,7 +24,7 @@ public class Util {
             JsonArray providers = icons.get("providers").getAsJsonArray();
             for (JsonElement icon : providers) {
                 if (!icon.getAsJsonObject().get("type").getAsString().equals("bitmap")) continue;
-                if (Objects.equals(icon.getAsJsonObject().get("chars").getAsJsonArray().get(0).getAsString(), MCCINametagMod.TEAM)) {
+                if (Objects.equals(icon.getAsJsonObject().get("chars").getAsJsonArray().get(0).getAsString(), MCCINametagMod.FACTION)) {
                     iconPath = icon.getAsJsonObject().get("file").getAsString();
                     break;
                 }

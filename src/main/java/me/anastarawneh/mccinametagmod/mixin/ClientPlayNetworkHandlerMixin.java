@@ -23,13 +23,14 @@ public abstract class ClientPlayNetworkHandlerMixin {
     @Inject(method = "onPlayerList(Lnet/minecraft/network/packet/s2c/play/PlayerListS2CPacket;)V", at = @At("TAIL"))
     public void onPlayerList(PlayerListS2CPacket packet, CallbackInfo ci) {
         try {
-            if (MCCINametagMod.TEAM.equals("")) {
+            if (MCCINametagMod.FACTION.equals("")) {
                 Collection<PlayerListEntry> tabList = getPlayerList();
                 for (PlayerListEntry tabEntry : tabList) {
-                    if (tabEntry.getDisplayName() != null && tabEntry.getDisplayName().getSiblings().get(3).getString().equals(MinecraftClient.getInstance().getSession().getUsername())) {
-                        MCCINametagMod.TEAM = tabEntry.getDisplayName().getSiblings().get(1).getString();
+                    if (tabEntry.getDisplayName() != null && tabEntry.getDisplayName().getSiblings().get(4).getString().equals(MinecraftClient.getInstance().getSession().getUsername())) {
                         MCCINametagMod.RANK = tabEntry.getDisplayName().getSiblings().get(0).getString();
-                        MCCINametagMod.COLOR = tabEntry.getDisplayName().getSiblings().get(3).getStyle().getColor();
+                        MCCINametagMod.FACTION = tabEntry.getDisplayName().getSiblings().get(1).getString();
+                        MCCINametagMod.CROWN = tabEntry.getDisplayName().getSiblings().get(2).getString();
+                        MCCINametagMod.COLOR = tabEntry.getDisplayName().getSiblings().get(4).getStyle().getColor();
                         break;
                     }
                 }

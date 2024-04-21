@@ -1,7 +1,6 @@
 package me.anastarawneh.mccinametagmod.util;
 
 public class UnicodeChars {
-    public static final String ChampionScoreUnicode = "\uE000";
     public static final String MedalUnicode = "\uE001";
     public static final String HealthBar2_0 = "\uE002";
     public static final String HealthBar1_5 = "\uE003";

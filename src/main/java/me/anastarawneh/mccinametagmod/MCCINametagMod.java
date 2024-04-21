@@ -18,19 +18,23 @@ public class MCCINametagMod implements ModInitializer {
     public static final String MODID = "mccinametagmod";
     public static final Logger LOGGER = LogManager.getLogger("MCCINametagMod");
     public static final MutableText MESSAGE_PREFIX = Text.literal(Formatting.GRAY + "[" + Formatting.GREEN + "MCCINametagMod" + Formatting.GRAY + "] " + Formatting.RESET);
-    public static String TEAM = "";
     public static String RANK = "";
+    public static String FACTION = "";
+    public static String CROWN = "";
     public static TextColor COLOR = TextColor.fromFormatting(Formatting.DARK_GRAY);
     public static TextColor FACTION_COLOR = TextColor.fromFormatting(Formatting.GRAY);
+    public static int FACTION_LEVEL = -1;
     public static Game GAME = Game.NONE;
     public static String STAGE = "";
     public static String PHASE_TYPE = "";
+    public static TextColor TEAM_COLOR = TextColor.fromFormatting(Formatting.GRAY);
 
     public static Exception LATEST_EXCEPTION = null;
 
     @Override
     public void onInitialize() {
         AutoConfig.register(Config.class, Toml4jConfigSerializer::new);
+        FACTION_LEVEL = getConfig().factionLevel;
         LOGGER.info("Hello there");
 
         LogExceptionCommand.register();
@@ -38,6 +42,9 @@ public class MCCINametagMod implements ModInitializer {
 
     public static Config getConfig() {
         return AutoConfig.getConfigHolder(Config.class).getConfig();
+    }
+    public static void saveConfig() {
+        AutoConfig.getConfigHolder(Config.class).save();
     }
 
     @SuppressWarnings("BooleanMethodIsAlwaysInverted")
