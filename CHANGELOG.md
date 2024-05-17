@@ -1,1 +1,1 @@
-Added support for Rocket Spleef Rush and Crown levels.
+Updated to 1.20.5, and finally added the rank nametag in lobbies. I can't test it because my account is unranked, so please let me know if you encounter any issues with it.
