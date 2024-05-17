@@ -285,6 +285,69 @@
       ],
       "ascent": 7,
       "height": 8
+    },
+    {
+      "type": "bitmap",
+      "file": "mcc:_fonts/ranks_long/rank_1.png",
+      "chars": [
+        "\uE01C"
+      ],
+      "ascent": 7,
+      "height": 9
+    },
+    {
+      "type": "bitmap",
+      "file": "mcc:_fonts/ranks_long/rank_2.png",
+      "chars": [
+        "\uE01D"
+      ],
+      "ascent": 7,
+      "height": 9
+    },
+    {
+      "type": "bitmap",
+      "file": "mcc:_fonts/ranks_long/rank_3.png",
+      "chars": [
+        "\uE01E"
+      ],
+      "ascent": 7,
+      "height": 9
+    },
+    {
+      "type": "bitmap",
+      "file": "mcc:_fonts/ranks_long/creator.png",
+      "chars": [
+        "\uE01F"
+      ],
+      "ascent": 7,
+      "height": 9
+    },
+    {
+      "type": "bitmap",
+      "file": "mcc:_fonts/ranks_long/contestant.png",
+      "chars": [
+        "\uE020"
+      ],
+      "ascent": 7,
+      "height": 9
+    },
+    {
+      "type": "bitmap",
+      "file": "mcc:_fonts/ranks_long/mod.png",
+      "chars": [
+        "\uE021"
+      ],
+      "ascent": 7,
+      "height": 9
+    },
+    {
+      "type": "bitmap",
+      "file": "mcc:_fonts/ranks_long/noxcrew.png",
+      "chars": [
+        "\uE022"
+      ],
+      "ascent": 7,
+      "height": 9
     }
   ]
 }

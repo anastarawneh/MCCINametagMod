@@ -1,6 +1,7 @@
 package me.anastarawneh.mccinametagmod.mixin;
 
 import me.anastarawneh.mccinametagmod.MCCINametagMod;
+import me.anastarawneh.mccinametagmod.util.UnicodeChars;
 import me.anastarawneh.mccinametagmod.util.Util;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
@@ -31,6 +32,26 @@ public abstract class ClientPlayNetworkHandlerMixin {
                         MCCINametagMod.FACTION = tabEntry.getDisplayName().getSiblings().get(1).getString();
                         MCCINametagMod.CROWN = tabEntry.getDisplayName().getSiblings().get(2).getString();
                         MCCINametagMod.COLOR = tabEntry.getDisplayName().getSiblings().get(4).getStyle().getColor();
+                        if (MCCINametagMod.COLOR != null) {
+                            if (MCCINametagMod.COLOR.equals(TextColor.fromRgb(11745279))) {
+                                MCCINametagMod.RANK_BADGE = UnicodeChars.ModRank;
+                            }
+                            else if (MCCINametagMod.COLOR.equals(TextColor.fromRgb(15673235))) {
+                                MCCINametagMod.RANK_BADGE = UnicodeChars.CreatorRank;
+                            }
+                            else if (MCCINametagMod.COLOR.equals(TextColor.fromRgb(16762624))) {
+                                MCCINametagMod.RANK_BADGE = UnicodeChars.GrandChampRoyaleRank;
+                            }
+                            else if (MCCINametagMod.COLOR.equals(TextColor.fromRgb(61695))) {
+                                MCCINametagMod.RANK_BADGE = UnicodeChars.GrandChampRank;
+                            }
+                            else if (MCCINametagMod.COLOR.equals(TextColor.fromRgb(8842805))) {
+                                MCCINametagMod.RANK_BADGE = UnicodeChars.ChampRank;
+                            }
+                            else {
+                                MCCINametagMod.RANK_BADGE = "";
+                            }
+                        }
                         break;
                     }
                 }

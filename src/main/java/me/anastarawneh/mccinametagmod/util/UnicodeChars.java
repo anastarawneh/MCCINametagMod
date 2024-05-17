@@ -28,4 +28,12 @@ public class UnicodeChars {
     public static final String DisabledHealthBar1_0Hit = "\uE019";
     public static final String TeamFlagBig = "\uE01A";
     public static final String TeamFlag = "\uE01B";
+    public static final String ChampRank = "\uE01C";
+    public static final String GrandChampRank = "\uE01D";
+    public static final String GrandChampRoyaleRank = "\uE01E";
+    public static final String CreatorRank = "\uE01F";
+    public static final String ContestantRank = "\uE020";
+    public static final String ModRank = "\uE021";
+    public static final String NoxcrewRank = "\uE022";
+
 }

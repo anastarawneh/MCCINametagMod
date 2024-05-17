@@ -2,6 +2,7 @@ package me.anastarawneh.mccinametagmod;
 
 import me.anastarawneh.mccinametagmod.command.LogExceptionCommand;
 import me.anastarawneh.mccinametagmod.config.Config;
+import me.anastarawneh.mccinametagmod.network.NoxesiumListener;
 import me.anastarawneh.mccinametagmod.util.Game;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.Toml4jConfigSerializer;
@@ -22,12 +23,12 @@ public class MCCINametagMod implements ModInitializer {
     public static String FACTION = "";
     public static String CROWN = "";
     public static TextColor COLOR = TextColor.fromFormatting(Formatting.DARK_GRAY);
+    public static String RANK_BADGE = "";
     public static TextColor FACTION_COLOR = TextColor.fromFormatting(Formatting.GRAY);
     public static int FACTION_LEVEL = -1;
     public static Game GAME = Game.NONE;
     public static String STAGE = "";
     public static String PHASE_TYPE = "";
-    public static TextColor TEAM_COLOR = TextColor.fromFormatting(Formatting.GRAY);
 
     public static Exception LATEST_EXCEPTION = null;
 
@@ -38,6 +39,8 @@ public class MCCINametagMod implements ModInitializer {
         LOGGER.info("Hello there");
 
         LogExceptionCommand.register();
+
+        new NoxesiumListener().init();
     }
 
     public static Config getConfig() {
