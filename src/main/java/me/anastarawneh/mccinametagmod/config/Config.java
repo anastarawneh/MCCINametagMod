@@ -9,5 +9,7 @@ public class Config implements ConfigData {
     public boolean enabled = true;
     public boolean showInInventory = false;
     @Excluded
+    public boolean debug = false;
+    @Excluded
     public int factionLevel = -1;
 }
