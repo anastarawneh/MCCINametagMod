@@ -9,14 +9,12 @@ plugins {
 version = project.mod_version
 group = project.maven_group
 
-File changelogFile = new File('CHANGELOG.md')
-
 modrinth {
     token = env.modrinthToken.value
     projectId = 'TBQr8ROh'
     versionNumber = "${project.version}"
     versionName = project.version
-    changelog = changelogFile.getText("UTF-8")
+    changelog = rootProject.file("CHANGELOG.md").text
     uploadFile = remapJar
     gameVersions = Arrays.asList(supported_versions.split(','))
     dependencies {
@@ -25,6 +23,7 @@ modrinth {
         required.project 'noxesium'
         optional.project 'modmenu'
     }
+    syncBodyFrom = rootProject.file("README.md").text
 }
 
 base {
