@@ -15,13 +15,13 @@ import java.util.concurrent.Executor;
 
 @Mixin(FontManager.class)
 public class FontManagerMixin {
-    @Inject(method = "load(Lnet/minecraft/client/font/FontManager$FontKey;Lnet/minecraft/client/font/FontLoader$Loadable;Lnet/minecraft/resource/ResourceManager;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "load", at = @At("HEAD"), cancellable = true)
     public void load(FontManager.FontKey key, FontLoader.Loadable loadable, ResourceManager resourceManager, Executor executor, CallbackInfoReturnable<CompletableFuture<Optional<Font>>> cir) {
         if (key.fontId().getNamespace().equals("mccinametagmod")) {
             cir.setReturnValue(CompletableFuture.supplyAsync(() -> {
                 try {
                     return Optional.of(loadable.load(resourceManager));
-                } catch (Exception var4) {
+                } catch (Exception exception) {
                     return Optional.empty();
                 }
             }, executor));
