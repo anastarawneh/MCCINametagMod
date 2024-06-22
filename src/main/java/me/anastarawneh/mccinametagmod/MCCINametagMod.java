@@ -58,4 +58,8 @@ public class MCCINametagMod implements ModInitializer {
                 MinecraftClient.getInstance().getCurrentServerEntry() != null &&
                 MinecraftClient.getInstance().getCurrentServerEntry().address.endsWith("mccisland.net");
     }
+
+    public static void sendChatMessage(Text message) {
+        MinecraftClient.getInstance().player.sendMessage(MCCINametagMod.MESSAGE_PREFIX.copy().append(message));
+    }
 }

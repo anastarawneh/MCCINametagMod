@@ -1,7 +1,6 @@
 package me.anastarawneh.mccinametagmod.mixin;
 
 import me.anastarawneh.mccinametagmod.MCCINametagMod;
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.GenericContainerScreen;
 import net.minecraft.component.DataComponentTypes;
@@ -42,7 +41,7 @@ public class GenericContainerScreenMixin {
                     MCCINametagMod.FACTION_LEVEL = Integer.parseInt(level);
                     MCCINametagMod.getConfig().factionLevel = Integer.parseInt(level);
                     MCCINametagMod.saveConfig();
-                    if (MCCINametagMod.modEnabled()) MinecraftClient.getInstance().player.sendMessage(MCCINametagMod.MESSAGE_PREFIX.copy().append(Text.literal("Saved faction level (" + level + ").").setStyle(Style.EMPTY.withColor(Formatting.GREEN))));
+                        MCCINametagMod.sendChatMessage(Text.literal("Saved faction level (" + level + ").").setStyle(Style.EMPTY.withColor(Formatting.GREEN)));
                 }
             }
             processed = true;
