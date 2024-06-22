@@ -31,17 +31,22 @@ public class GenericContainerScreenMixin {
 
     @Inject(method = "render", at = @At("TAIL"))
     public void render(DrawContext context, int mouseX, int mouseY, float delta, CallbackInfo ci) {
-        if (!processed) {
+        if (!processed && MCCINametagMod.modEnabled()) {
             if (title.getString().contains("WARDROBE") && title.getString().contains("PROFILE")) {
-                if (inventory.getStack(49).getName().getString().equals("Air")) return;
-                String levelLine = inventory.getStack(49).getComponents().get(DataComponentTypes.LORE).lines().get(2).getString();
-                MCCINametagMod.LOGGER.info(levelLine);
-                String level = levelLine.split(" ")[1];
-                if (MCCINametagMod.FACTION_LEVEL != Integer.parseInt(level)) {
-                    MCCINametagMod.FACTION_LEVEL = Integer.parseInt(level);
-                    MCCINametagMod.getConfig().factionLevel = Integer.parseInt(level);
-                    MCCINametagMod.saveConfig();
+                try {
+                    if (inventory.getStack(49).getName().getString().equals("Air")) return;
+                    String levelLine = inventory.getStack(49).getComponents().get(DataComponentTypes.LORE).lines().get(2).getString();
+                    MCCINametagMod.LOGGER.info(levelLine);
+                    String level = levelLine.split(" ")[1];
+                    if (MCCINametagMod.FACTION_LEVEL != Integer.parseInt(level)) {
+                        MCCINametagMod.FACTION_LEVEL = Integer.parseInt(level);
+                        MCCINametagMod.getConfig().factionLevel = Integer.parseInt(level);
+                        MCCINametagMod.saveConfig();
                         MCCINametagMod.sendChatMessage(Text.literal("Saved faction level (" + level + ").").setStyle(Style.EMPTY.withColor(Formatting.GREEN)));
+                    }
+                } catch (Exception ex) {
+                    MCCINametagMod.sendChatMessage(Text.literal("Could not retrieve current faction level. Check the log for more details.").setStyle(Style.EMPTY.withColor(Formatting.RED)));
+                    MCCINametagMod.LOGGER.throwing(ex);
                 }
             }
             processed = true;
