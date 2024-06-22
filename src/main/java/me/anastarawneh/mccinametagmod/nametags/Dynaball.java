@@ -24,7 +24,7 @@ public class Dynaball {
             }
 
             Nametags.TOP_LABEL = Text.empty();
-            Nametags.BOTTOM_LABEL = Text.literal(UnicodeChars.TeamFlag).setStyle(Style.EMPTY.withColor(TEAM_COLOR).withFont(new Identifier("mccinametagmod:mcci_icons")))
+            Nametags.BOTTOM_LABEL = Text.literal(UnicodeChars.TeamFlag).setStyle(Style.EMPTY.withColor(TEAM_COLOR).withFont(new Identifier("mcc:icon")))
                     .append(Text.literal(MCCINametagMod.RANK + MCCINametagMod.CROWN).setStyle(Style.EMPTY.withColor(MCCINametagMod.COLOR).withFont(new Identifier("mcc:icon"))))
                     .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:padding_nosplit"))))
                     .append(Text.literal(playerName).setStyle(Style.EMPTY.withFont(new Identifier("minecraft:default")).withColor(TEAM_COLOR)));

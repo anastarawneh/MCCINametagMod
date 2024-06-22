@@ -24,7 +24,7 @@ public class ParkourWarriorSurvivor {
         String playerName = MinecraftClient.getInstance().player.getName().getString();
 
         if (!MCCINametagMod.PHASE_TYPE.equals("POST_GAME")) {
-            Nametags.TOP_LABEL = Text.literal(UnicodeChars.TeamFlagBig).setStyle(Style.EMPTY.withColor(MCCINametagMod.FACTION_COLOR).withFont(new Identifier("mccinametagmod:mcci_icons")))
+            Nametags.TOP_LABEL = Text.literal(UnicodeChars.TeamFlagBig).setStyle(Style.EMPTY.withColor(MCCINametagMod.FACTION_COLOR).withFont(new Identifier("mcc:icon")))
                     .append(Text.literal(" ").setStyle(Style.EMPTY.withColor(Formatting.WHITE)))
                     .append(Nametags.getPartialHealthBar(HEALTH, MAX_HEALTH));Nametags.BOTTOM_LABEL = Text.literal(playerName).setStyle(Style.EMPTY.withColor(MCCINametagMod.FACTION_COLOR).withFont(new Identifier("minecraft:default")));
             Nametags.RANK_LABEL = Text.empty();

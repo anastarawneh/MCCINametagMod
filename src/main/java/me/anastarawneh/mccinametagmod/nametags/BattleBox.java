@@ -32,7 +32,7 @@ public class BattleBox {
             Nametags.RANK_LABEL = Text.empty();
         }
         else if (!MCCINametagMod.STAGE.equals("podiumPhase") && !MCCINametagMod.STAGE.equals("postGame")) {
-            Nametags.TOP_LABEL = Text.literal(UnicodeChars.TeamFlagBig).setStyle(Style.EMPTY.withColor(TEAM_COLOR).withFont(new Identifier("mccinametagmod:mcci_icons")))
+            Nametags.TOP_LABEL = Text.literal(UnicodeChars.TeamFlagBig).setStyle(Style.EMPTY.withColor(TEAM_COLOR).withFont(new Identifier("mcc:icon")))
                     .append(Text.literal(" ").setStyle(Style.EMPTY.withColor(Formatting.WHITE)))
                     .append(Nametags.getHealthBar(HEALTH));
             Nametags.BOTTOM_LABEL = Text.literal(playerName).setStyle(Style.EMPTY.withColor(TEAM_COLOR).withFont(new Identifier("minecraft:default")));

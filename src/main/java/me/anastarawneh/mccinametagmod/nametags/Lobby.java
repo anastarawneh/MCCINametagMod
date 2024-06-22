@@ -22,7 +22,7 @@ public class Lobby {
                 .append(Text.literal(MCCINametagMod.FACTION_LEVEL + " ").setStyle(Style.EMPTY.withFont(new Identifier("minecraft:default"))))
                 .append(Text.literal(MCCINametagMod.CROWN).setStyle(Style.EMPTY.withFont(new Identifier("mcc:icon"))))
                 .append(Text.literal(String.valueOf(crownLevel)).setStyle(Style.EMPTY.withColor(Formatting.YELLOW).withFont(new Identifier("minecraft:default"))));
-        Nametags.RANK_LABEL = Text.literal(MCCINametagMod.RANK_BADGE).setStyle(Style.EMPTY.withFont(new Identifier("mccinametagmod:mcci_icons")));
+        Nametags.RANK_LABEL = Text.literal(MCCINametagMod.RANK_BADGE).setStyle(Style.EMPTY.withFont(new Identifier("mcc:icon")));
 
         if (MCCINametagMod.GAME == Game.PARKOUR_WARRIOR_LOBBY)
         {
@@ -36,7 +36,7 @@ public class Lobby {
                         .getSiblings().getFirst().getSiblings().getFirst().getSiblings().getFirst().getSiblings().getFirst().getString().replace(",", ""));
             }
             Nametags.BOTTOM_LABEL = Nametags.BOTTOM_LABEL
-                    .append(Text.literal(" " + UnicodeChars.MedalUnicode).setStyle(Style.EMPTY.withFont(new Identifier("mccinametagmod:mcci_icons"))))
+                    .append(Text.literal(" " + UnicodeChars.MedalUnicode).setStyle(Style.EMPTY.withFont(new Identifier("mcc:icon"))))
                     .append(Text.literal(String.valueOf(medals)).setStyle(Style.EMPTY.withColor(Formatting.YELLOW).withFont(new Identifier("minecraft:default"))));
         }
     }

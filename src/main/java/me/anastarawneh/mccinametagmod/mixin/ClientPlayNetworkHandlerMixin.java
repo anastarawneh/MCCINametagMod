@@ -33,23 +33,32 @@ public abstract class ClientPlayNetworkHandlerMixin {
                         MCCINametagMod.CROWN = tabEntry.getDisplayName().getSiblings().get(2).getString();
                         MCCINametagMod.COLOR = tabEntry.getDisplayName().getSiblings().get(4).getStyle().getColor();
                         if (MCCINametagMod.COLOR != null) {
-                            if (MCCINametagMod.COLOR.equals(TextColor.fromRgb(11745279))) {
+                            if (MCCINametagMod.RANK.equals(UnicodeChars.NoxcrewIcon)) {
+                                MCCINametagMod.RANK_BADGE = UnicodeChars.NoxcrewRank;
+                            }
+                            else if (MCCINametagMod.RANK.equals(UnicodeChars.ModIcon)) {
                                 MCCINametagMod.RANK_BADGE = UnicodeChars.ModRank;
                             }
-                            else if (MCCINametagMod.COLOR.equals(TextColor.fromRgb(15673235))) {
+                            else if (MCCINametagMod.RANK.equals(UnicodeChars.ContestantIcon)) {
+                                MCCINametagMod.RANK_BADGE = UnicodeChars.ContestantRank;
+                            }
+                            else if (MCCINametagMod.RANK.equals(UnicodeChars.CreatorIcon)) {
                                 MCCINametagMod.RANK_BADGE = UnicodeChars.CreatorRank;
                             }
-                            else if (MCCINametagMod.COLOR.equals(TextColor.fromRgb(16762624))) {
+                            else if (MCCINametagMod.RANK.equals(UnicodeChars.GrandChampRoyaleIcon)) {
                                 MCCINametagMod.RANK_BADGE = UnicodeChars.GrandChampRoyaleRank;
                             }
-                            else if (MCCINametagMod.COLOR.equals(TextColor.fromRgb(61695))) {
+                            else if (MCCINametagMod.RANK.equals(UnicodeChars.GrandChampIcon)) {
                                 MCCINametagMod.RANK_BADGE = UnicodeChars.GrandChampRank;
                             }
-                            else if (MCCINametagMod.COLOR.equals(TextColor.fromRgb(8842805))) {
+                            else if (MCCINametagMod.RANK.equals(UnicodeChars.ChampIcon)) {
                                 MCCINametagMod.RANK_BADGE = UnicodeChars.ChampRank;
                             }
-                            else {
+                            else if (MCCINametagMod.RANK.equals(UnicodeChars.BasicIcon)) {
                                 MCCINametagMod.RANK_BADGE = "";
+                            }
+                            else {
+                                MCCINametagMod.RANK_BADGE = "!";
                             }
                         }
                         break;
