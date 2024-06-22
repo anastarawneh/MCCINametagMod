@@ -120,7 +120,7 @@ jar {
 
 remapJar {
     afterEvaluate {
-        archiveFileName = "${project.base.archivesName.get()}-${project.version}.jar"
+        archiveFileName = "${project.base.archivesName.get()}-${project.version}+${stonecutter.current.version}.jar"
     }
 }
 
