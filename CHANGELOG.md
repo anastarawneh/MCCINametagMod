@@ -1,1 +1,1 @@
-Updated to 1.20.5, and finally added the rank nametag in lobbies. I can't test it because my account is unranked, so please let me know if you encounter any issues with it.
+Behind the scenes changes for better version maintenance. This version is compatible with 1.21, but it will not launch until Noxesium is updated.
