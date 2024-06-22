@@ -18,11 +18,11 @@ public class Lobby {
 
         Nametags.TOP_LABEL = Text.literal(playerName).setStyle(Style.EMPTY.withColor(MCCINametagMod.COLOR));
         int crownLevel = player.experienceLevel;
-        Nametags.BOTTOM_LABEL = Text.literal(MCCINametagMod.FACTION).setStyle(Style.EMPTY.withFont(new Identifier("mcc:icon")))
-                .append(Text.literal(MCCINametagMod.FACTION_LEVEL + " ").setStyle(Style.EMPTY.withFont(new Identifier("minecraft:default"))))
-                .append(Text.literal(MCCINametagMod.CROWN).setStyle(Style.EMPTY.withFont(new Identifier("mcc:icon"))))
-                .append(Text.literal(String.valueOf(crownLevel)).setStyle(Style.EMPTY.withColor(Formatting.YELLOW).withFont(new Identifier("minecraft:default"))));
-        Nametags.RANK_LABEL = Text.literal(MCCINametagMod.RANK_BADGE).setStyle(Style.EMPTY.withFont(new Identifier("mcc:icon")));
+        Nametags.BOTTOM_LABEL = Text.literal(MCCINametagMod.FACTION).setStyle(Style.EMPTY.withFont(Identifier.of("mcc", "icon")))
+                .append(Text.literal(MCCINametagMod.FACTION_LEVEL + " ").setStyle(Style.EMPTY.withFont(Identifier.of("minecraft", "default"))))
+                .append(Text.literal(MCCINametagMod.CROWN).setStyle(Style.EMPTY.withFont(Identifier.of("mcc", "icon"))))
+                .append(Text.literal(String.valueOf(crownLevel)).setStyle(Style.EMPTY.withColor(Formatting.YELLOW).withFont(Identifier.of("minecraft", "default"))));
+        Nametags.RANK_LABEL = Text.literal(MCCINametagMod.RANK_BADGE).setStyle(Style.EMPTY.withFont(Identifier.of("mcc", "icon")));
 
         if (MCCINametagMod.GAME == Game.PARKOUR_WARRIOR_LOBBY)
         {
@@ -36,8 +36,8 @@ public class Lobby {
                         .getSiblings().getFirst().getSiblings().getFirst().getSiblings().getFirst().getSiblings().getFirst().getString().replace(",", ""));
             }
             Nametags.BOTTOM_LABEL = Nametags.BOTTOM_LABEL
-                    .append(Text.literal(" " + UnicodeChars.MedalUnicode).setStyle(Style.EMPTY.withFont(new Identifier("mcc:icon"))))
-                    .append(Text.literal(String.valueOf(medals)).setStyle(Style.EMPTY.withColor(Formatting.YELLOW).withFont(new Identifier("minecraft:default"))));
+                    .append(Text.literal(" " + UnicodeChars.MedalUnicode).setStyle(Style.EMPTY.withFont(Identifier.of("mcc", "icon"))))
+                    .append(Text.literal(String.valueOf(medals)).setStyle(Style.EMPTY.withColor(Formatting.YELLOW).withFont(Identifier.of("minecraft", "default"))));
         }
     }
 }

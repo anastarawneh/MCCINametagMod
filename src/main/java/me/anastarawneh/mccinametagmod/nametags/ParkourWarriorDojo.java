@@ -20,12 +20,12 @@ public class ParkourWarriorDojo {
         for (PlayerListEntry entry : MinecraftClient.getInstance().player.networkHandler.getListedPlayerListEntries())
             if (entry.getDisplayName() != null && entry.getDisplayName().toString().contains("color=yellow"))
                 MEDALS = Integer.parseInt(entry.getDisplayName().getSiblings().get(1).getString());
-        Nametags.BOTTOM_LABEL = Text.literal(MCCINametagMod.FACTION).setStyle(Style.EMPTY.withFont(new Identifier("mcc:icon")))
-                .append(Text.literal(MCCINametagMod.FACTION_LEVEL + " ").setStyle(Style.EMPTY.withFont(new Identifier("minecraft:default"))))
-                .append(Text.literal(MCCINametagMod.CROWN).setStyle(Style.EMPTY.withFont(new Identifier("mcc:icon"))))
-                .append(Text.literal(crownLevel + " ").setStyle(Style.EMPTY.withColor(Formatting.YELLOW).withFont(new Identifier("minecraft:default"))))
-                .append(Text.literal(UnicodeChars.MedalUnicode).setStyle(Style.EMPTY.withFont(new Identifier("mcc:icon"))))
-                .append(Text.literal(String.valueOf(MEDALS)).setStyle(Style.EMPTY.withColor(Formatting.YELLOW).withFont(new Identifier("minecraft:default"))));
+        Nametags.BOTTOM_LABEL = Text.literal(MCCINametagMod.FACTION).setStyle(Style.EMPTY.withFont(Identifier.of("mcc", "icon")))
+                .append(Text.literal(MCCINametagMod.FACTION_LEVEL + " ").setStyle(Style.EMPTY.withFont(Identifier.of("minecraft", "default"))))
+                .append(Text.literal(MCCINametagMod.CROWN).setStyle(Style.EMPTY.withFont(Identifier.of("mcc", "icon"))))
+                .append(Text.literal(crownLevel + " ").setStyle(Style.EMPTY.withColor(Formatting.YELLOW).withFont(Identifier.of("minecraft", "default"))))
+                .append(Text.literal(UnicodeChars.MedalUnicode).setStyle(Style.EMPTY.withFont(Identifier.of("mcc", "icon"))))
+                .append(Text.literal(String.valueOf(MEDALS)).setStyle(Style.EMPTY.withColor(Formatting.YELLOW).withFont(Identifier.of("minecraft", "default"))));
         Nametags.RANK_LABEL = Text.empty();
     }
 }

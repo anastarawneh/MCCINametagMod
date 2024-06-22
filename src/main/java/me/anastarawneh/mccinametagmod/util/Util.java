@@ -16,7 +16,7 @@ import java.util.Objects;
 public class Util {
     public static TextColor GetFactionColor() {
         try {
-            Resource resource = MinecraftClient.getInstance().getResourceManager().getAllResources(new Identifier("mcc", "font/icon.json")).get(0);
+            Resource resource = MinecraftClient.getInstance().getResourceManager().getAllResources(Identifier.of("mcc", "font/icon.json")).get(0);
             String json = resource.getReader().readLine();
             String iconPath = "";
 

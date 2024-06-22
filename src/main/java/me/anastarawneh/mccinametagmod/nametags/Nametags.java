@@ -17,12 +17,12 @@ public class Nametags {
     public static MutableText getStandardBottomText(boolean faction) {
         String playerName = MinecraftClient.getInstance().player.getName().getString();
 
-        if (faction) return Text.literal(MCCINametagMod.RANK + MCCINametagMod.FACTION + MCCINametagMod.CROWN).setStyle(Style.EMPTY.withColor(MCCINametagMod.COLOR).withFont(new Identifier("mcc:icon")))
-                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:padding_nosplit"))))
-                .append(Text.literal(playerName).setStyle(Style.EMPTY.withFont(new Identifier("minecraft:default"))));
-        else return Text.literal(MCCINametagMod.RANK + MCCINametagMod.CROWN).setStyle(Style.EMPTY.withColor(MCCINametagMod.COLOR).withFont(new Identifier("mcc:icon")))
-                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:padding_nosplit"))))
-                .append(Text.literal(playerName).setStyle(Style.EMPTY.withFont(new Identifier("minecraft:default"))));
+        if (faction) return Text.literal(MCCINametagMod.RANK + MCCINametagMod.FACTION + MCCINametagMod.CROWN).setStyle(Style.EMPTY.withColor(MCCINametagMod.COLOR).withFont(Identifier.of("mcc", "icon")))
+                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(Identifier.of("mcc", "padding_nosplit"))))
+                .append(Text.literal(playerName).setStyle(Style.EMPTY.withFont(Identifier.of("minecraft", "default"))));
+        else return Text.literal(MCCINametagMod.RANK + MCCINametagMod.CROWN).setStyle(Style.EMPTY.withColor(MCCINametagMod.COLOR).withFont(Identifier.of("mcc", "icon")))
+                .append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(Identifier.of("mcc", "padding_nosplit"))))
+                .append(Text.literal(playerName).setStyle(Style.EMPTY.withFont(Identifier.of("minecraft", "default"))));
     }
 
     public static MutableText getHealthBar(int health) {
@@ -32,10 +32,10 @@ public class Nametags {
     public static MutableText getHealthBar(int health, boolean hideNumber) {
         MutableText label = Text.empty();
         for (int segment = 0; segment < 5; segment++) {
-            if (health >= 4 + (4 * segment)) label = label.append(Text.literal(UnicodeChars.HealthBar2_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-            else if (health == 3 + (4 * segment)) label = label.append(Text.literal(UnicodeChars.HealthBar1_5).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-            else if (health == 2 + (4 * segment)) label = label.append(Text.literal(UnicodeChars.HealthBar1_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-            else if (health == 1 + (4 * segment)) label = label.append(Text.literal(UnicodeChars.HealthBar0_5).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+            if (health >= 4 + (4 * segment)) label = label.append(Text.literal(UnicodeChars.HealthBar2_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(Identifier.of("mcc", "icon"))));
+            else if (health == 3 + (4 * segment)) label = label.append(Text.literal(UnicodeChars.HealthBar1_5).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(Identifier.of("mcc", "icon"))));
+            else if (health == 2 + (4 * segment)) label = label.append(Text.literal(UnicodeChars.HealthBar1_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(Identifier.of("mcc", "icon"))));
+            else if (health == 1 + (4 * segment)) label = label.append(Text.literal(UnicodeChars.HealthBar0_5).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(Identifier.of("mcc", "icon"))));
             else if (segment == 4 && !hideNumber) {
                 label = label.append(Text.literal(switch (health) {
                     case 16 -> UnicodeChars.HealthNum8_0;
@@ -55,11 +55,11 @@ public class Nametags {
                     case  2 -> UnicodeChars.HealthNum1_0;
                     case  1 -> UnicodeChars.HealthNum0_5;
                     default -> UnicodeChars.HealthBar0_0;
-                }).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+                }).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(Identifier.of("mcc", "icon"))));
             }
-            else label = label.append(Text.literal(UnicodeChars.HealthBar0_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+            else label = label.append(Text.literal(UnicodeChars.HealthBar0_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(Identifier.of("mcc", "icon"))));
 
-            if (segment < 4) label = label.append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+            if (segment < 4) label = label.append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(Identifier.of("mcc", "negative_padding_nosplit"))));
         }
         return label;
     }
@@ -69,14 +69,14 @@ public class Nametags {
         health /= 2;
         maxHealth /= 2;
         for (int segment = 0; segment < 5; segment++) {
-            if (health >= 2 + (2 * segment)) label = label.append(Text.literal(UnicodeChars.HealthBar2_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-            else if (maxHealth == 1 + (2 * segment) && health == 1 + (2 * segment)) label = label.append(Text.literal(UnicodeChars.DisabledHealthBar1_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-            else if (maxHealth == 1 + (2 * segment)) label = label.append(Text.literal(UnicodeChars.DisabledHealthBar1_0Hit).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-            else if (health == 1 + (2 * segment)) label = label.append(Text.literal(UnicodeChars.HealthBar1_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-            else if (maxHealth < (2 * segment)) label = label.append(Text.literal(UnicodeChars.DisabledHealthBar2_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
-            else label = label.append(Text.literal(UnicodeChars.HealthBar0_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(new Identifier("mcc:icon"))));
+            if (health >= 2 + (2 * segment)) label = label.append(Text.literal(UnicodeChars.HealthBar2_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(Identifier.of("mcc", "icon"))));
+            else if (maxHealth == 1 + (2 * segment) && health == 1 + (2 * segment)) label = label.append(Text.literal(UnicodeChars.DisabledHealthBar1_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(Identifier.of("mcc", "icon"))));
+            else if (maxHealth == 1 + (2 * segment)) label = label.append(Text.literal(UnicodeChars.DisabledHealthBar1_0Hit).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(Identifier.of("mcc", "icon"))));
+            else if (health == 1 + (2 * segment)) label = label.append(Text.literal(UnicodeChars.HealthBar1_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(Identifier.of("mcc", "icon"))));
+            else if (maxHealth < (2 * segment)) label = label.append(Text.literal(UnicodeChars.DisabledHealthBar2_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(Identifier.of("mcc", "icon"))));
+            else label = label.append(Text.literal(UnicodeChars.HealthBar0_0).setStyle(Style.EMPTY.withColor(Formatting.WHITE).withFont(Identifier.of("mcc", "icon"))));
 
-            if (segment < 4) label = label.append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(new Identifier("mcc:negative_padding_nosplit"))));
+            if (segment < 4) label = label.append(Text.literal("\uE002").setStyle(Style.EMPTY.withFont(Identifier.of("mcc", "negative_padding_nosplit"))));
         }
         return label;
     }

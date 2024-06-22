@@ -22,7 +22,7 @@ public class RocketSpleefRush {
             Nametags.RANK_LABEL = Text.empty();
         }
         else if (MCCINametagMod.STAGE.equals("inRound")) {
-            Nametags.TOP_LABEL = Text.literal(UnicodeChars.TeamFlagBig).setStyle(Style.EMPTY.withColor(MCCINametagMod.FACTION_COLOR).withFont(new Identifier("mcc:icon")))
+            Nametags.TOP_LABEL = Text.literal(UnicodeChars.TeamFlagBig).setStyle(Style.EMPTY.withColor(MCCINametagMod.FACTION_COLOR).withFont(Identifier.of("mcc", "icon")))
                     .append(Text.literal(" ").setStyle(Style.EMPTY.withColor(Formatting.WHITE)))
                     .append(Nametags.getHealthBar(HEALTH, true));
             Nametags.BOTTOM_LABEL = Nametags.getStandardBottomText(false);
