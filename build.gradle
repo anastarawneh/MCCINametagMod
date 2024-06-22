@@ -3,14 +3,13 @@ plugins {
     id 'fabric-loom' version '1.6-SNAPSHOT'
     id 'maven-publish'
     id 'com.modrinth.minotaur' version '2.+'
-    id 'co.uzzu.dotenv.gradle' version '2.0.0'
 }
 
 version = project.mod_version
 group = project.maven_group
 
 modrinth {
-    token = env.modrinthToken.value
+    token = project.modrinth_token
     projectId = 'TBQr8ROh'
     versionNumber = "${project.version}"
     versionName = project.version
