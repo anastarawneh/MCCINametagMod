@@ -11,11 +11,13 @@ import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.LivingEntityRenderer;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.entity.EntityAttachmentType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
+import net.minecraft.util.math.Vec3d;
 import org.joml.Matrix4f;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -88,57 +90,70 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
 
         double d = this.dispatcher.getSquaredDistanceToCamera(entity);
         if (!(d > 4096.0)) {
-            boolean bl = !entity.isSneaky();
-            float f = entity.getHeight() + 1.0F;
-            int i = "deadmau5".equals(Nametags.BOTTOM_LABEL.getString()) ? -10 : 0;
-            matrices.push();
-            matrices.translate(0.0, f, 0.0);
-            matrices.multiply(this.dispatcher.getRotation());
-            matrices.scale(-0.025F, -0.025F, 0.025F);
-            Matrix4f matrix4f = matrices.peek().getPositionMatrix();
-            float g = MinecraftClient.getInstance().options.getTextBackgroundOpacity(0.25F);
-            int j = (int)(g * 255.0F) << 24;
-            TextRenderer textRenderer = this.getTextRenderer();
-            float h = (float)(-textRenderer.getWidth(Nametags.BOTTOM_LABEL) / 2);
-            textRenderer.draw(Nametags.BOTTOM_LABEL, h, (float)i, 553648127, false, matrix4f, vertexConsumers, bl ? TextRenderer.TextLayerType.SEE_THROUGH : TextRenderer.TextLayerType.NORMAL, j, light);
-            if (bl) {
-                textRenderer.draw(Nametags.BOTTOM_LABEL, h, (float)i, -1, false, matrix4f, vertexConsumers, TextRenderer.TextLayerType.NORMAL, 0, light);
-            }
+            Vec3d vec3d = entity.getAttachments().getPointNullable(EntityAttachmentType.NAME_TAG, 0, entity.getYaw(tickDelta));
+            if (vec3d != null) {
+                // TODO: check which of these actually matter
+                //? if >=1.21 {
+                    /*double translateX = vec3d.x;
+                    double translateY = vec3d.y + 1.0;
+                    double translateZ = vec3d.z;
+                    float scaleX = 0.025F;
+                *///?} else {
+                    double translateX = 0.0F;
+                    double translateY = entity.getHeight() + 1.0;
+                    double translateZ = 0.0F;
+                    float scaleX = -0.025F;
+                //?}
 
-            matrices.pop();
-
-            if (!Nametags.TOP_LABEL.getString().isEmpty()) {
-                f = entity.getHeight() + 1.5F;
-                i = "deadmau5".equals(Nametags.TOP_LABEL.getString()) ? -10 : 0;
+                boolean bl = !entity.isSneaky();
+                int i = "deadmau5".equals(Nametags.BOTTOM_LABEL.getString()) ? -10 : 0;
                 matrices.push();
-                matrices.translate(0.0, f, 0.0);
-                matrices.multiply(getDispatcher().getRotation());
-                matrices.scale(-0.025F, -0.025F, 0.025F);
-                matrix4f = matrices.peek().getPositionMatrix();
-                h = (float)(-textRenderer.getWidth(Nametags.TOP_LABEL) / 2);
-                textRenderer.draw(Nametags.TOP_LABEL, h, (float) i, 553648127, false, matrix4f, vertexConsumers, bl ? TextRenderer.TextLayerType.SEE_THROUGH : TextRenderer.TextLayerType.NORMAL, j, light);
+                matrices.translate(translateX, translateY, translateZ);
+                matrices.multiply(this.dispatcher.getRotation());
+                matrices.scale(scaleX, -0.025F, 0.025F);
+                Matrix4f matrix4f = matrices.peek().getPositionMatrix();
+                float g = MinecraftClient.getInstance().options.getTextBackgroundOpacity(0.25F);
+                int j = (int) (g * 255.0F) << 24;
+                TextRenderer textRenderer = this.getTextRenderer();
+                float h = (float) (-textRenderer.getWidth(Nametags.BOTTOM_LABEL) / 2);
+                textRenderer.draw(Nametags.BOTTOM_LABEL, h, (float) i, 553648127, false, matrix4f, vertexConsumers, bl ? TextRenderer.TextLayerType.SEE_THROUGH : TextRenderer.TextLayerType.NORMAL, j, light);
                 if (bl) {
-                    textRenderer.draw(Nametags.TOP_LABEL, h, (float) i, -1, false, matrix4f, vertexConsumers, TextRenderer.TextLayerType.NORMAL, 0, light);
+                    textRenderer.draw(Nametags.BOTTOM_LABEL, h, (float) i, -1, false, matrix4f, vertexConsumers, TextRenderer.TextLayerType.NORMAL, 0, light);
                 }
 
                 matrices.pop();
-            }
 
-            if (!Nametags.RANK_LABEL.getString().isEmpty()) {
-                f = entity.getHeight() + 2.0F;
-                i = "deadmau5".equals(Nametags.RANK_LABEL.getString()) ? -10 : 0;
-                matrices.push();
-                matrices.translate(0.0, f, 0.0);
-                matrices.multiply(getDispatcher().getRotation());
-                matrices.scale(-0.025F, -0.025F, 0.025F);
-                matrix4f = matrices.peek().getPositionMatrix();
-                h = (float)(-textRenderer.getWidth(Nametags.RANK_LABEL) / 2);
-                textRenderer.draw(Nametags.RANK_LABEL, h, (float) i, 553648127, false, matrix4f, vertexConsumers, bl ? TextRenderer.TextLayerType.SEE_THROUGH : TextRenderer.TextLayerType.NORMAL, 0, light);
-                if (bl) {
-                    textRenderer.draw(Nametags.RANK_LABEL, h, (float) i, -1, false, matrix4f, vertexConsumers, TextRenderer.TextLayerType.NORMAL, 0, light);
+                if (!Nametags.TOP_LABEL.getString().isEmpty()) {
+                    i = "deadmau5".equals(Nametags.TOP_LABEL.getString()) ? -10 : 0;
+                    matrices.push();
+                    matrices.translate(translateX, translateY + 0.5, translateZ);
+                    matrices.multiply(getDispatcher().getRotation());
+                    matrices.scale(scaleX, -0.025F, 0.025F);
+                    matrix4f = matrices.peek().getPositionMatrix();
+                    h = (float) (-textRenderer.getWidth(Nametags.TOP_LABEL) / 2);
+                    textRenderer.draw(Nametags.TOP_LABEL, h, (float) i, 553648127, false, matrix4f, vertexConsumers, bl ? TextRenderer.TextLayerType.SEE_THROUGH : TextRenderer.TextLayerType.NORMAL, j, light);
+                    if (bl) {
+                        textRenderer.draw(Nametags.TOP_LABEL, h, (float) i, -1, false, matrix4f, vertexConsumers, TextRenderer.TextLayerType.NORMAL, 0, light);
+                    }
+
+                    matrices.pop();
                 }
 
-                matrices.pop();
+                if (!Nametags.RANK_LABEL.getString().isEmpty()) {
+                    i = "deadmau5".equals(Nametags.RANK_LABEL.getString()) ? -10 : 0;
+                    matrices.push();
+                    matrices.translate(translateX, translateY + 1.0, translateZ);
+                    matrices.multiply(getDispatcher().getRotation());
+                    matrices.scale(scaleX, -0.025F, 0.025F);
+                    matrix4f = matrices.peek().getPositionMatrix();
+                    h = (float) (-textRenderer.getWidth(Nametags.RANK_LABEL) / 2);
+                    textRenderer.draw(Nametags.RANK_LABEL, h, (float) i, 553648127, false, matrix4f, vertexConsumers, bl ? TextRenderer.TextLayerType.SEE_THROUGH : TextRenderer.TextLayerType.NORMAL, 0, light);
+                    if (bl) {
+                        textRenderer.draw(Nametags.RANK_LABEL, h, (float) i, -1, false, matrix4f, vertexConsumers, TextRenderer.TextLayerType.NORMAL, 0, light);
+                    }
+
+                    matrices.pop();
+                }
             }
         }
     }
