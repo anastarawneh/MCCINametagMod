@@ -13,3 +13,8 @@ stonecutter.registerChiseled tasks.register("chiseledClasses", stonecutter.chise
     setGroup "project"
     ofTask "classes"
 }
+
+stonecutter.registerChiseled tasks.register("chiseledModrinth", stonecutter.chiseled) {
+    setGroup "publishing"
+    ofTask "modrinth"
+}
