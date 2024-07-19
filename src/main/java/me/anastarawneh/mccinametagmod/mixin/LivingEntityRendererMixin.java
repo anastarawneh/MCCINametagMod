@@ -28,6 +28,7 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
     @Unique
     private boolean applyLabel(LivingEntity livingEntity) {
         if (!MCCINametagMod.modEnabled()) return false;
+        if (!(livingEntity instanceof PlayerEntity player) || !player.isMainPlayer()) return false;
 
         MinecraftClient minecraftClient = MinecraftClient.getInstance();
         ClientPlayerEntity clientPlayerEntity = minecraftClient.player;
@@ -40,20 +41,12 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
 
     @Override
     public void render(T entity, float yaw, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, CallbackInfo ci) {
-        if (applyLabel(entity)) {
-            renderLabel(entity, matrices, vertexConsumers, light);
-        }
-        else {
-            super.render(entity, yaw, tickDelta, matrices, vertexConsumers, light, ci);
-        }
+        if (applyLabel(entity)) renderLabel(entity, matrices, vertexConsumers, light, tickDelta);
     }
 
     @Unique
-    public void renderLabel(T entity, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light) {
-        if (!(entity instanceof PlayerEntity player) || !player.isMainPlayer()) {
-            return;
-        }
-
+    public void renderLabel(T entity, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, float tickDelta) {
+        PlayerEntity player = (PlayerEntity) entity;
         String playerName = player.getGameProfile().getName();
         Game game = MCCINametagMod.GAME;
         try {
