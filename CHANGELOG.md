@@ -1,1 +1,1 @@
-Behind the scenes changes for better version maintenance. This version is compatible with 1.21, but it will not launch until Noxesium is updated.
+Fix nametag not rendering in 1.21.
