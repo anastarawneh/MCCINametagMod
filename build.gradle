@@ -30,9 +30,9 @@ modrinth {
     gameVersions = Arrays.asList(supported_versions.split(','))
     dependencies {
         required.project 'fabric-api'
-        required.project 'cloth-config'
-        required.project 'noxesium'
-        optional.project 'modmenu'
+        required.version 'cloth-config', "${clothconfig_version}+fabric"
+        required.version 'noxesium', noxesium_version
+        optional.version 'modmenu', modmenu_version
     }
     syncBodyFrom = rootProject.file("README.md").text
 }
