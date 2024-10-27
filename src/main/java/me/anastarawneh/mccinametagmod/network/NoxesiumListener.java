@@ -31,7 +31,7 @@ public class NoxesiumListener {
             map.put("serverType", packet.serverType());
             map.put("subType", packet.subType());
             map.put("associatedGame", packet.associatedGame());
-            context.player().sendMessage(Text.literal("Received packet -> " + map));
+            context.player().sendMessage(Text.literal("Received packet -> " + map), false);
         }
 
         switch (packet.serverType()) {
@@ -87,7 +87,7 @@ public class NoxesiumListener {
             map.put("totalRounds", String.valueOf(packet.totalRounds()));
             map.put("mapId", packet.mapId());
             map.put("mapName", packet.mapName());
-            context.player().sendMessage(Text.literal("Received packet -> " + map));
+            context.player().sendMessage(Text.literal("Received packet -> " + map), false);
         }
 
         MCCINametagMod.STAGE = packet.stage();

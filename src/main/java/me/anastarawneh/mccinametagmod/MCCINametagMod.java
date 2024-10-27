@@ -60,6 +60,6 @@ public class MCCINametagMod implements ModInitializer {
     }
 
     public static void sendChatMessage(Text message) {
-        MinecraftClient.getInstance().player.sendMessage(MCCINametagMod.MESSAGE_PREFIX.copy().append(message));
+        MinecraftClient.getInstance().player.sendMessage(MCCINametagMod.MESSAGE_PREFIX.copy().append(message), false);
     }
 }
