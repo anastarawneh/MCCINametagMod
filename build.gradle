@@ -35,6 +35,7 @@ modrinth {
         optional.version 'modmenu', modmenu_version
     }
     syncBodyFrom = rootProject.file("README.md").text
+    debugMode = project.version.contains("-dev")
 }
 
 base {
