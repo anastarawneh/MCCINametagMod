@@ -34,7 +34,7 @@ public class ParkourWarriorSurvivor {
         }
         else {
             Nametags.TOP_LABEL = Text.empty();
-            Nametags.BOTTOM_LABEL = Nametags.getStandardBottomText(false);
+            Nametags.BOTTOM_LABEL = Nametags.getStandardBottomText(true);
             Nametags.RANK_LABEL = Text.empty();
         }
     }
