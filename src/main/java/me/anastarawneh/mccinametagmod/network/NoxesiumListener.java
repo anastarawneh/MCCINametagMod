@@ -37,21 +37,17 @@ public class NoxesiumListener {
         switch (packet.serverType()) {
             case "hole-in-the-wall":
                 MCCINametagMod.GAME = Game.HOLE_IN_THE_WALL;
-                HoleInTheWall.setNametag();
                 break;
             case "tgttos":
                 MCCINametagMod.GAME = Game.TGTTOS;
-                TGTTOS.setNametag();
                 break;
             case "battle-box":
                 MCCINametagMod.GAME = Game.BATTLE_BOX;
                 MCCINametagMod.STAGE = "";
-                BattleBox.setNametag();
                 break;
             case "sky-battle":
                 MCCINametagMod.GAME = Game.SKY_BATTLE;
                 MCCINametagMod.STAGE = "";
-                SkyBattle.setNametag();
                 break;
             case "parkour-warrior":
                 if (packet.subType().equals("main")) MCCINametagMod.GAME = Game.PARKOUR_WARRIOR_DOJO;
