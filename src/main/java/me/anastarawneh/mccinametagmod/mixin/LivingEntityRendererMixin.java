@@ -52,7 +52,13 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
         String playerName = player.getGameProfile().getName();
         Game game = MCCINametagMod.GAME;
         try {
-            if (game == Game.BATTLE_BOX) {
+            if (game == Game.HOLE_IN_THE_WALL) {
+                HoleInTheWall.setNametag();
+            }
+            else if (game == Game.TGTTOS) {
+                TGTTOS.setNametag();
+            }
+            else if (game == Game.BATTLE_BOX) {
                 float health = player.getHealth();
                 BattleBox.setNametag(health);
             }
