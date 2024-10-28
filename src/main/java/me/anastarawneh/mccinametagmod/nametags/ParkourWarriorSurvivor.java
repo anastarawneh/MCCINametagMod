@@ -13,9 +13,7 @@ public class ParkourWarriorSurvivor {
     private static int MAX_HEALTH = 10;
 
     public static void setNametag(float health, float maxHealth) {
-        health /= 2;
         HEALTH = (int) health;
-        maxHealth /= 2;
         MAX_HEALTH = (int) maxHealth;
         setNametag();
     }
