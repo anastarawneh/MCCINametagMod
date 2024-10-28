@@ -24,7 +24,7 @@ public class Lobby {
                 .append(Text.literal(String.valueOf(crownLevel)).setStyle(Style.EMPTY.withColor(Formatting.YELLOW).withFont(Identifier.of("minecraft", "default"))));
         Nametags.RANK_LABEL = Text.literal(MCCINametagMod.RANK_BADGE).setStyle(Style.EMPTY.withFont(Identifier.of("mcc", "icon")));
 
-        if (MCCINametagMod.GAME == Game.PARKOUR_WARRIOR_LOBBY)
+        /*if (MCCINametagMod.GAME == Game.PARKOUR_WARRIOR_LOBBY)
         {
             Scoreboard scoreboard = MinecraftClient.getInstance().player.getScoreboard();
             ScoreboardObjective obj = scoreboard.getObjectiveForSlot(ScoreboardDisplaySlot.SIDEBAR);
@@ -39,6 +39,6 @@ public class Lobby {
             Nametags.BOTTOM_LABEL = Nametags.BOTTOM_LABEL
                     .append(Text.literal(" " + UnicodeChars.MedalUnicode).setStyle(Style.EMPTY.withFont(Identifier.of("mcc", "icon"))))
                     .append(Text.literal(String.valueOf(medals)).setStyle(Style.EMPTY.withColor(Formatting.YELLOW).withFont(Identifier.of("minecraft", "default"))));
-        }
+        }*/
     }
 }
