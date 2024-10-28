@@ -30,10 +30,11 @@ public class Lobby {
             ScoreboardObjective obj = scoreboard.getObjectiveForSlot(ScoreboardDisplaySlot.SIDEBAR);
             int medals = -1;
             for (ScoreboardEntry entry : scoreboard.getScoreboardEntries(obj).stream().toList()) {
-                Team team = scoreboard.getScoreHolderTeam(entry.owner());
-                if (!team.getPrefix().getString().contains("Total Unique Medals")) continue;
-                medals = Integer.parseInt(team.getPrefix()
-                        .getSiblings().getFirst().getSiblings().getFirst().getSiblings().getFirst().getSiblings().getFirst().getString().replace(",", ""));
+                String line = entry.name().getString();
+                if (!line.contains("MEDALS")) continue;
+                line = line.replace(",", "").replace("MEDALS", "").replace(".", "");
+                int len = line.length();
+                medals = Integer.parseInt(line.substring(1, len - 1));
             }
             Nametags.BOTTOM_LABEL = Nametags.BOTTOM_LABEL
                     .append(Text.literal(" " + UnicodeChars.MedalUnicode).setStyle(Style.EMPTY.withFont(Identifier.of("mcc", "icon"))))
