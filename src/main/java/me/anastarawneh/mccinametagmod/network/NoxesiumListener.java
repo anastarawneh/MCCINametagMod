@@ -16,13 +16,8 @@ import java.util.HashMap;
 
 public class NoxesiumListener {
     public void init() {
-        //? if >=1.21 {
-            /*NoxesiumPackets.CLIENT_MCC_SERVER.addListener(this, (k, packet, context) -> handleMccServerPacket(packet, context));
-            NoxesiumPackets.CLIENT_MCC_GAME_STATE.addListener(this, (k, packet, context) -> handleMccGameStatePacket(packet, context));
-        *///?} else {
-            NoxesiumPackets.MCC_SERVER.addListener(this, (k, packet, context) -> handleMccServerPacket(packet, context));
-            NoxesiumPackets.MCC_GAME_STATE.addListener(this, (k, packet, context) -> handleMccGameStatePacket(packet, context));
-        //?}
+        NoxesiumPackets.CLIENT_MCC_SERVER.addListener(this, (k, packet, context) -> handleMccServerPacket(packet, context));
+        NoxesiumPackets.CLIENT_MCC_GAME_STATE.addListener(this, (k, packet, context) -> handleMccGameStatePacket(packet, context));
     }
 
     private void handleMccServerPacket(ClientboundMccServerPacket packet, ClientPlayNetworking.Context context) {

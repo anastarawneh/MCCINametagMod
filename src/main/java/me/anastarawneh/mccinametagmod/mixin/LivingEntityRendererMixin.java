@@ -99,24 +99,16 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
             Vec3d vec3d = entity.getAttachments().getPointNullable(EntityAttachmentType.NAME_TAG, 0, entity.getYaw(tickDelta));
             if (vec3d != null) {
                 // TODO: check which of these actually matter
-                //? if >=1.21 {
-                    /*double translateX = vec3d.x;
-                    double translateY = vec3d.y + 1.0;
-                    double translateZ = vec3d.z;
-                    float scaleX = 0.025F;
-                *///?} else {
-                    double translateX = 0.0F;
-                    double translateY = entity.getHeight() + 1.0;
-                    double translateZ = 0.0F;
-                    float scaleX = -0.025F;
-                //?}
+                double translateX = vec3d.x;
+                double translateY = vec3d.y + 1.0;
+                double translateZ = vec3d.z;
 
                 boolean bl = !entity.isSneaky();
                 int i = "deadmau5".equals(Nametags.BOTTOM_LABEL.getString()) ? -10 : 0;
                 matrices.push();
                 matrices.translate(translateX, translateY, translateZ);
                 matrices.multiply(this.dispatcher.getRotation());
-                matrices.scale(scaleX, -0.025F, 0.025F);
+                matrices.scale(0.025F, -0.025F, 0.025F);
                 Matrix4f matrix4f = matrices.peek().getPositionMatrix();
                 float g = MinecraftClient.getInstance().options.getTextBackgroundOpacity(0.25F);
                 int j = (int) (g * 255.0F) << 24;
@@ -134,7 +126,7 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
                     matrices.push();
                     matrices.translate(translateX, translateY + 0.5, translateZ);
                     matrices.multiply(getDispatcher().getRotation());
-                    matrices.scale(scaleX, -0.025F, 0.025F);
+                    matrices.scale(0.025F, -0.025F, 0.025F);
                     matrix4f = matrices.peek().getPositionMatrix();
                     h = (float) (-textRenderer.getWidth(Nametags.TOP_LABEL) / 2);
                     textRenderer.draw(Nametags.TOP_LABEL, h, (float) i, 553648127, false, matrix4f, vertexConsumers, bl ? TextRenderer.TextLayerType.SEE_THROUGH : TextRenderer.TextLayerType.NORMAL, j, light);
@@ -150,7 +142,7 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
                     matrices.push();
                     matrices.translate(translateX, translateY + 1.0, translateZ);
                     matrices.multiply(getDispatcher().getRotation());
-                    matrices.scale(scaleX, -0.025F, 0.025F);
+                    matrices.scale(0.025F, -0.025F, 0.025F);
                     matrix4f = matrices.peek().getPositionMatrix();
                     h = (float) (-textRenderer.getWidth(Nametags.RANK_LABEL) / 2);
                     textRenderer.draw(Nametags.RANK_LABEL, h, (float) i, 553648127, false, matrix4f, vertexConsumers, bl ? TextRenderer.TextLayerType.SEE_THROUGH : TextRenderer.TextLayerType.NORMAL, 0, light);
