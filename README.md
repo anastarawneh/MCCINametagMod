@@ -1,6 +1,6 @@
 This is a mod that displays your own nametag on MCC Island, exactly the way the server does it. This includes rank and team colors, achievement points and faction rank in lobbies, and the health bar in Sky Battle and Battle Box. 
 
-**This mod supports Fabric 1.20.5-1.21.1, and requires [Fabric API](https://modrinth.com/mod/fabric-api), [Noxesium](https://modrinth.com/mod/noxesium) and [Cloth Config](https://modrinth.com/mod/cloth-config).**
+**This mod supports Fabric 1.21-1.21.5, and requires [Fabric API](https://modrinth.com/mod/fabric-api), [Noxesium](https://modrinth.com/mod/noxesium) and [Cloth Config](https://modrinth.com/mod/cloth-config).**
 
 ### Known Issues:
 - If you change your faction, the mod doesn't recognize your new faction until the next time you load Minecraft.
