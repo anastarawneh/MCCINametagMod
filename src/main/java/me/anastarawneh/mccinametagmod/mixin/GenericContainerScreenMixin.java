@@ -32,7 +32,7 @@ public class GenericContainerScreenMixin {
     @Inject(method = "render", at = @At("TAIL"))
     public void render(DrawContext context, int mouseX, int mouseY, float delta, CallbackInfo ci) {
         if (!processed && MCCINametagMod.modEnabled()) {
-            if (title.getString().contains("WARDROBE") && title.getString().contains("PROFILE")) {
+            if (title.getString().contains("MY PROFILE")) {
                 try {
                     if (inventory.getStack(49).getName().getString().equals("Air")) return;
                     String levelLine = inventory.getStack(49).getComponents().get(DataComponentTypes.LORE).lines().get(2).getString();
