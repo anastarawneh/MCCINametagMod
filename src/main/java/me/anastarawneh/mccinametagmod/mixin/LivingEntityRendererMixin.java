@@ -19,6 +19,7 @@ import net.minecraft.client.render.entity.state.LivingEntityRenderState;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAttachmentType;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.text.Style;
@@ -82,10 +83,10 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
                 Dynaball.setNametag();
             }
             else if (game == Game.ROCKET_SPLEEF_RUSH) {
-                int maxDamage = player.getInventory().getArmorStack(2).getMaxDamage();
-                int currentDamage = maxDamage - player.getInventory().getArmorStack(2).getDamage();
+                int maxDamage = player.getEquippedStack(EquipmentSlot.BODY).getMaxDamage();
+                int currentDamage = maxDamage - player.getEquippedStack(EquipmentSlot.BODY).getDamage();
                 int health = (int) Math.floor(((float) currentDamage) / maxDamage * 20);
-                if (Objects.equals(player.getInventory().getArmorStack(2).getName().getString(), "Air")) health = 20;
+                if (Objects.equals(player.getEquippedStack(EquipmentSlot.BODY).getName().getString(), "Air")) health = 20;
                 RocketSpleefRush.setNametag(health);
             }
             else {
