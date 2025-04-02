@@ -26,6 +26,6 @@ public class ParkourWarriorDojo {
                 .append(Text.literal(crownLevel + " ").setStyle(Style.EMPTY.withColor(Formatting.YELLOW).withFont(Identifier.of("minecraft", "default"))))
                 .append(Text.literal(UnicodeChars.MedalUnicode).setStyle(Style.EMPTY.withFont(Identifier.of("mcc", "icon"))))
                 .append(Text.literal(String.valueOf(MEDALS)).setStyle(Style.EMPTY.withColor(Formatting.YELLOW).withFont(Identifier.of("minecraft", "default"))));
-        Nametags.RANK_LABEL = Text.empty();
+        Nametags.RANK_LABEL = Text.literal(MCCINametagMod.RANK_BADGE).setStyle(Style.EMPTY.withFont(Identifier.of("mcc", "icon")));
     }
 }
