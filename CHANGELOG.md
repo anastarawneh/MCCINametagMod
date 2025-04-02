@@ -1,3 +1,3 @@
-This version *actually* supports 1.21.5, and fixes an issue with the Faction Level updater.
+Hotfix for an issue in team game nametags, and added the rank display in Parkour Warrior Survivor.
 
 Eid Mubarak!
