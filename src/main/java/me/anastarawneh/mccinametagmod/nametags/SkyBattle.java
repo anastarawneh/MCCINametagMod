@@ -4,6 +4,7 @@ import me.anastarawneh.mccinametagmod.MCCINametagMod;
 import me.anastarawneh.mccinametagmod.util.UnicodeChars;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.PlayerListEntry;
+import net.minecraft.text.MutableText;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.text.TextColor;
@@ -13,6 +14,7 @@ import net.minecraft.util.Identifier;
 public class SkyBattle {
     private static TextColor TEAM_COLOR = TextColor.fromFormatting(Formatting.GRAY);
     private static int HEALTH = 20;
+    private static MutableText DECORATED_TEXT = Text.empty();
 
     public static void setNametag(float health) {
         HEALTH = (int) health;
@@ -24,11 +26,12 @@ public class SkyBattle {
 
         if (MCCINametagMod.STAGE.isEmpty() || MCCINametagMod.STAGE.equals("preRound")) {
             Text text = MinecraftClient.getInstance().getNetworkHandler().getPlayerList().stream().map(PlayerListEntry::getDisplayName).filter(t -> t != null && t.getString().contains(playerName)).findFirst().get();
-            Style style = text.getSiblings().getFirst().getSiblings().get(4).getStyle();
+            Style style = text.getSiblings().getFirst().getStyle();
             TEAM_COLOR = style.getColor();
+            DECORATED_TEXT = (MutableText) text;
             
             Nametags.TOP_LABEL = Text.empty();
-            Nametags.BOTTOM_LABEL = Text.literal(playerName).setStyle(Style.EMPTY.withColor(TEAM_COLOR));
+            Nametags.BOTTOM_LABEL = DECORATED_TEXT;
             Nametags.RANK_LABEL = Text.empty();
         }
         else if (MCCINametagMod.STAGE.equals("inRound")) {
@@ -40,7 +43,7 @@ public class SkyBattle {
         }
         else if (!MCCINametagMod.STAGE.equals("podiumPhase")) {
             Nametags.TOP_LABEL = Text.empty();
-            Nametags.BOTTOM_LABEL = Text.literal(playerName).setStyle(Style.EMPTY.withColor(TEAM_COLOR));
+            Nametags.BOTTOM_LABEL = DECORATED_TEXT;
             Nametags.RANK_LABEL = Text.empty();
         }
         else {

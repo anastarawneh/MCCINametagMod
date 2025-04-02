@@ -19,7 +19,7 @@ public class Dynaball {
         if (!MCCINametagMod.STAGE.equals("podiumPhase")) {
             if (MCCINametagMod.STAGE.isEmpty()) {
                 Text text = MinecraftClient.getInstance().getNetworkHandler().getPlayerList().stream().map(PlayerListEntry::getDisplayName).filter(t -> t != null && t.getString().contains(MinecraftClient.getInstance().player.getGameProfile().getName())).findFirst().get();
-                Style style = text.getSiblings().getFirst().getSiblings().getFirst().getSiblings().get(4).getStyle();
+                Style style = text.getSiblings().getFirst().getSiblings().getFirst().getStyle();
                 TEAM_COLOR = style.getColor();
             }
 
