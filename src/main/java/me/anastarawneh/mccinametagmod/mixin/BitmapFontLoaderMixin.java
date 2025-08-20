@@ -58,6 +58,7 @@ public class BitmapFontLoaderMixin {
             case "_fonts/ranks_long/rank_1.png" -> UnicodeChars.ChampRank = !Objects.equals(UnicodeChars.ChampRank, "") ? character : UnicodeChars.ChampRank;
             case "_fonts/ranks_long/rank_2.png" -> UnicodeChars.GrandChampRank = !Objects.equals(UnicodeChars.GrandChampRank, "") ? character : UnicodeChars.GrandChampRank;
             case "_fonts/ranks_long/rank_3.png" -> UnicodeChars.GrandChampRoyaleRank = !Objects.equals(UnicodeChars.GrandChampRoyaleRank, "") ? character : UnicodeChars.GrandChampRoyaleRank;
+            case "_fonts/ranks_long/rank_4.png" -> UnicodeChars.GrandChampSupremeRank = !Objects.equals(UnicodeChars.GrandChampSupremeRank, "") ? character : UnicodeChars.GrandChampSupremeRank;
             case "_fonts/ranks_long/creator.png" -> UnicodeChars.CreatorRank = !Objects.equals(UnicodeChars.CreatorRank, "") ? character : UnicodeChars.CreatorRank;
             case "_fonts/ranks_long/contestant.png" -> UnicodeChars.ContestantRank = !Objects.equals(UnicodeChars.ContestantRank, "") ? character : UnicodeChars.ContestantRank;
             case "_fonts/ranks_long/mod.png" -> UnicodeChars.ModRank = !Objects.equals(UnicodeChars.ModRank, "") ? character : UnicodeChars.ModRank;
@@ -66,6 +67,7 @@ public class BitmapFontLoaderMixin {
             case "_fonts/ranks_short/rank_1.png" -> UnicodeChars.ChampIcon = !Objects.equals(UnicodeChars.ChampIcon, "") ? character : UnicodeChars.ChampIcon;
             case "_fonts/ranks_short/rank_2.png" -> UnicodeChars.GrandChampIcon = !Objects.equals(UnicodeChars.GrandChampIcon, "") ? character : UnicodeChars.GrandChampIcon;
             case "_fonts/ranks_short/rank_3.png" -> UnicodeChars.GrandChampRoyaleIcon = !Objects.equals(UnicodeChars.GrandChampRoyaleIcon, "") ? character : UnicodeChars.GrandChampRoyaleIcon;
+            case "_fonts/ranks_short/rank_4.png" -> UnicodeChars.GrandChampSupremeIcon = !Objects.equals(UnicodeChars.GrandChampSupremeIcon, "") ? character : UnicodeChars.GrandChampSupremeIcon;
             case "_fonts/ranks_short/vip.png" -> UnicodeChars.CreatorIcon = !Objects.equals(UnicodeChars.CreatorIcon, "") ? character : UnicodeChars.CreatorIcon;
             case "_fonts/ranks_short/contestant.png" -> UnicodeChars.ContestantIcon = !Objects.equals(UnicodeChars.ContestantIcon, "") ? character : UnicodeChars.ContestantIcon;
             case "_fonts/ranks_short/mod.png" -> UnicodeChars.ModIcon = !Objects.equals(UnicodeChars.ModIcon, "") ? character : UnicodeChars.ModIcon;

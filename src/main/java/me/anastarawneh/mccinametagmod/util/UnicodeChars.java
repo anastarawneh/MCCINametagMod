@@ -31,6 +31,7 @@ public class UnicodeChars {
     public static String ChampRank;
     public static String GrandChampRank;
     public static String GrandChampRoyaleRank;
+    public static String GrandChampSupremeRank;
     public static String CreatorRank;
     public static String ContestantRank;
     public static String ModRank;
@@ -39,6 +40,7 @@ public class UnicodeChars {
     public static String ChampIcon;
     public static String GrandChampIcon;
     public static String GrandChampRoyaleIcon;
+    public static String GrandChampSupremeIcon;
     public static String CreatorIcon;
     public static String ContestantIcon;
     public static String ModIcon;

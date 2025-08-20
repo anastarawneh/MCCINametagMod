@@ -45,6 +45,9 @@ public abstract class ClientPlayNetworkHandlerMixin {
                             else if (MCCINametagMod.RANK.equals(UnicodeChars.CreatorIcon)) {
                                 MCCINametagMod.RANK_BADGE = UnicodeChars.CreatorRank;
                             }
+                            else if (MCCINametagMod.RANK.equals(UnicodeChars.GrandChampSupremeIcon)) {
+                                MCCINametagMod.RANK_BADGE = UnicodeChars.GrandChampSupremeRank;
+                            }
                             else if (MCCINametagMod.RANK.equals(UnicodeChars.GrandChampRoyaleIcon)) {
                                 MCCINametagMod.RANK_BADGE = UnicodeChars.GrandChampRoyaleRank;
                             }
