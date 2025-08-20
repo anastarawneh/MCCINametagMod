@@ -89,6 +89,9 @@ public class LivingEntityRendererMixin<T extends LivingEntity> extends EntityRen
                 if (Objects.equals(player.getEquippedStack(EquipmentSlot.BODY).getName().getString(), "Air")) health = 20;
                 RocketSpleefRush.setNametag(health);
             }
+            else if (game == Game.FISHING) {
+                Fishing.setNametag();
+            }
             else {
                 Lobby.setNametag();
             }

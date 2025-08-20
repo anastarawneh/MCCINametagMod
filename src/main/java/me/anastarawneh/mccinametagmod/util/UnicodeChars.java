@@ -43,5 +43,26 @@ public class UnicodeChars {
     public static String ContestantIcon;
     public static String ModIcon;
     public static String NoxcrewIcon;
-
+    public static String FishingLevel0;
+    public static String FishingLevel0Big;
+    public static String FishingLevel1;
+    public static String FishingLevel1Big;
+    public static String FishingLevel2;
+    public static String FishingLevel2Big;
+    public static String FishingLevel3;
+    public static String FishingLevel3Big;
+    public static String FishingLevel4;
+    public static String FishingLevel4Big;
+    public static String FishingLevel5;
+    public static String FishingLevel5Big;
+    public static String FishingLevel6;
+    public static String FishingLevel6Big;
+    public static String FishingLevel7;
+    public static String FishingLevel7Big;
+    public static String FishingLevel8;
+    public static String FishingLevel8Big;
+    public static String FishingLevel9;
+    public static String FishingLevel9Big;
+    public static String FishingLevel10;
+    public static String FishingLevel10Big;
 }

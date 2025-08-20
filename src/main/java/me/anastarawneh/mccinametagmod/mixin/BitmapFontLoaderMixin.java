@@ -70,6 +70,28 @@ public class BitmapFontLoaderMixin {
             case "_fonts/ranks_short/contestant.png" -> UnicodeChars.ContestantIcon = !Objects.equals(UnicodeChars.ContestantIcon, "") ? character : UnicodeChars.ContestantIcon;
             case "_fonts/ranks_short/mod.png" -> UnicodeChars.ModIcon = !Objects.equals(UnicodeChars.ModIcon, "") ? character : UnicodeChars.ModIcon;
             case "_fonts/ranks_short/noxcrew.png" -> UnicodeChars.NoxcrewIcon = !Objects.equals(UnicodeChars.NoxcrewIcon, "") ? character : UnicodeChars.NoxcrewIcon;
+            case "_fonts/fishing_level/0.png" -> UnicodeChars.FishingLevel0 = !Objects.equals(UnicodeChars.FishingLevel0, "") ? character : UnicodeChars.FishingLevel0;
+            case "_fonts/fishing_level/0_big.png" -> UnicodeChars.FishingLevel0Big = !Objects.equals(UnicodeChars.FishingLevel0Big, "") ? character : UnicodeChars.FishingLevel0Big;
+            case "_fonts/fishing_level/1.png" -> UnicodeChars.FishingLevel1 = !Objects.equals(UnicodeChars.FishingLevel1, "") ? character : UnicodeChars.FishingLevel1;
+            case "_fonts/fishing_level/1_big.png" -> UnicodeChars.FishingLevel1Big = !Objects.equals(UnicodeChars.FishingLevel1Big, "") ? character : UnicodeChars.FishingLevel1Big;
+            case "_fonts/fishing_level/2.png" -> UnicodeChars.FishingLevel2 = !Objects.equals(UnicodeChars.FishingLevel2, "") ? character : UnicodeChars.FishingLevel2;
+            case "_fonts/fishing_level/2_big.png" -> UnicodeChars.FishingLevel2Big = !Objects.equals(UnicodeChars.FishingLevel2Big, "") ? character : UnicodeChars.FishingLevel2Big;
+            case "_fonts/fishing_level/3.png" -> UnicodeChars.FishingLevel3 = !Objects.equals(UnicodeChars.FishingLevel3, "") ? character : UnicodeChars.FishingLevel3;
+            case "_fonts/fishing_level/3_big.png" -> UnicodeChars.FishingLevel3Big = !Objects.equals(UnicodeChars.FishingLevel3Big, "") ? character : UnicodeChars.FishingLevel3Big;
+            case "_fonts/fishing_level/4.png" -> UnicodeChars.FishingLevel4 = !Objects.equals(UnicodeChars.FishingLevel4, "") ? character : UnicodeChars.FishingLevel4;
+            case "_fonts/fishing_level/4_big.png" -> UnicodeChars.FishingLevel4Big = !Objects.equals(UnicodeChars.FishingLevel4Big, "") ? character : UnicodeChars.FishingLevel4Big;
+            case "_fonts/fishing_level/5.png" -> UnicodeChars.FishingLevel5 = !Objects.equals(UnicodeChars.FishingLevel5, "") ? character : UnicodeChars.FishingLevel5;
+            case "_fonts/fishing_level/5_big.png" -> UnicodeChars.FishingLevel5Big = !Objects.equals(UnicodeChars.FishingLevel5Big, "") ? character : UnicodeChars.FishingLevel5Big;
+            case "_fonts/fishing_level/6.png" -> UnicodeChars.FishingLevel6 = !Objects.equals(UnicodeChars.FishingLevel6, "") ? character : UnicodeChars.FishingLevel6;
+            case "_fonts/fishing_level/6_big.png" -> UnicodeChars.FishingLevel6Big = !Objects.equals(UnicodeChars.FishingLevel6Big, "") ? character : UnicodeChars.FishingLevel6Big;
+            case "_fonts/fishing_level/7.png" -> UnicodeChars.FishingLevel7 = !Objects.equals(UnicodeChars.FishingLevel7, "") ? character : UnicodeChars.FishingLevel7;
+            case "_fonts/fishing_level/7_big.png" -> UnicodeChars.FishingLevel7Big = !Objects.equals(UnicodeChars.FishingLevel7Big, "") ? character : UnicodeChars.FishingLevel7Big;
+            case "_fonts/fishing_level/8.png" -> UnicodeChars.FishingLevel8 = !Objects.equals(UnicodeChars.FishingLevel8, "") ? character : UnicodeChars.FishingLevel8;
+            case "_fonts/fishing_level/8_big.png" -> UnicodeChars.FishingLevel8Big = !Objects.equals(UnicodeChars.FishingLevel8Big, "") ? character : UnicodeChars.FishingLevel8Big;
+            case "_fonts/fishing_level/9.png" -> UnicodeChars.FishingLevel9 = !Objects.equals(UnicodeChars.FishingLevel9, "") ? character : UnicodeChars.FishingLevel9;
+            case "_fonts/fishing_level/9_big.png" -> UnicodeChars.FishingLevel9Big = !Objects.equals(UnicodeChars.FishingLevel9Big, "") ? character : UnicodeChars.FishingLevel9Big;
+            case "_fonts/fishing_level/10.png" -> UnicodeChars.FishingLevel10 = !Objects.equals(UnicodeChars.FishingLevel10, "") ? character : UnicodeChars.FishingLevel10;
+            case "_fonts/fishing_level/10_big.png" -> UnicodeChars.FishingLevel10Big = !Objects.equals(UnicodeChars.FishingLevel10Big, "") ? character : UnicodeChars.FishingLevel10Big;
         }
     }
 }

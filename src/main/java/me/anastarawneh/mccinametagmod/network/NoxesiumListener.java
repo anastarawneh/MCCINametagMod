@@ -71,6 +71,9 @@ public class NoxesiumListener {
                 break;
             default:
                 if (packet.subType().equals("parkour-warrior")) MCCINametagMod.GAME = Game.PARKOUR_WARRIOR_LOBBY;
+                else if (packet.subType().contains("temperate_") ||
+                         packet.subType().contains("tropical_") ||
+                         packet.subType().contains("barren_")) MCCINametagMod.GAME = Game.FISHING;
                 else MCCINametagMod.GAME = Game.NONE;
                 break;
         }
