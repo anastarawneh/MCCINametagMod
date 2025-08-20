@@ -2,6 +2,7 @@ package me.anastarawneh.mccinametagmod.mixin;
 
 import me.anastarawneh.mccinametagmod.MCCINametagMod;
 import net.minecraft.client.resource.server.ServerResourcePackLoader;
+import net.minecraft.text.ClickEvent;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
@@ -19,7 +20,12 @@ public class ServerResourcePackLoaderMixin {
     public void onReloadSuccess(CallbackInfo ci) {
         if (MCCINametagMod.modEnabled()) {
             if (MCCINametagMod.FACTION_LEVEL == -1 && !sentFactionLevelWarning) {
-                MCCINametagMod.sendChatMessage(Text.literal("Due to an MCC Island update, your faction level could not be obtained. Please open your wardrobe to fix.").setStyle(Style.EMPTY.withColor(Formatting.RED)));
+                MCCINametagMod.sendChatMessage(Text.literal("Due to an MCC Island update, your faction level could not be obtained. Click here to fix.").setStyle(Style.EMPTY.withColor(Formatting.RED)
+                //? if >=1.21.5 {
+                        /*.withClickEvent(new ClickEvent.RunCommand("/profile"))));
+                *///?} else {
+                        .withClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/profile"))));
+                //?}
                 sentFactionLevelWarning = true;
             }
         }

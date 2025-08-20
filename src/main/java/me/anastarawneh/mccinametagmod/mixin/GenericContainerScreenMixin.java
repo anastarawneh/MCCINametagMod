@@ -34,8 +34,8 @@ public class GenericContainerScreenMixin {
         if (!processed && MCCINametagMod.modEnabled()) {
             if (title.getString().contains("MY PROFILE")) {
                 try {
-                    if (inventory.getStack(49).getName().getString().equals("Air")) return;
-                    String levelLine = inventory.getStack(49).getComponents().get(DataComponentTypes.LORE).lines().get(2).getString();
+                    if (inventory.getStack(24).getName().getString().equals("Air")) return;
+                    String levelLine = inventory.getStack(24).getComponents().get(DataComponentTypes.LORE).lines().get(2).getString();
                     MCCINametagMod.LOGGER.info(levelLine);
                     String level = levelLine.split(" ")[1];
                     if (MCCINametagMod.FACTION_LEVEL != Integer.parseInt(level)) {
