@@ -33,8 +33,9 @@ public class GenericContainerScreenMixin {
     public void render(DrawContext context, int mouseX, int mouseY, float delta, CallbackInfo ci) {
         if (!processed && MCCINametagMod.modEnabled()) {
             if (title.getString().contains("MY PROFILE")) {
+                if (inventory.isEmpty()) return; // do this THEN try looping, it eventually calls render again after the items arrive
                 try {
-                    if (inventory.getStack(24).getName().getString().equals("Air")) return;
+                    if (!inventory.getStack(24).getName().getString().contains("Faction Loyalty")) return;
                     String levelLine = inventory.getStack(24).getComponents().get(DataComponentTypes.LORE).lines().get(2).getString();
                     MCCINametagMod.LOGGER.info(levelLine);
                     String level = levelLine.split(" ")[1];
